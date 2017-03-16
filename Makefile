@@ -18,7 +18,8 @@ LENGTHNAME	=	`printf "%s" $(NAMEBASE) | wc -c`
 MAX_COLS	=	$$(echo "$$(tput cols)-24-$(LENGTHNAME)"|bc)
 
 CC			=	gcc 
-FLAGS		=	-Wall -Wextra -Werror -O3
+#FLAGS		=	-Wall -Wextra -Werror -O3
+FLAGS       =
 FLAGS_O		=	
 
 SRCDIR_SERVEUR		=	srcs/server/
@@ -32,7 +33,8 @@ LIBFT_DIR			=	libft/
 LIBFT_LIB			=	$(LIBFT_DIR)libft.a
 
 SRCBASE_SERVEUR	=	\
-					server.c
+					server.c \
+					error.c
 
 SRCBASE_CLIENT		=	\
 					client.c
