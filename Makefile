@@ -34,7 +34,8 @@ LIBFT_LIB			=	$(LIBFT_DIR)libft.a
 
 SRCBASE_SERVEUR	=	\
 					server.c \
-					error.c
+					error.c  \
+					client.c
 
 SRCBASE_CLIENT		=	\
 					client.c
