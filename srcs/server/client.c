@@ -12,6 +12,12 @@
 
 #include "all.h"
 
+void			send_data(t_client *client, char *msg)
+{
+	if (client->fd)
+		write(client->fd, msg, ft_strlen(msg));
+}
+
 t_client		*alloc_new_client(void)
 {
 	t_client	*client;
@@ -21,6 +27,7 @@ t_client		*alloc_new_client(void)
 	client->prev = NULL;
 	client->next = NULL;
 	client->fd = 0;
+	client->send = send_data;
 	return (client);
 }
 
@@ -82,6 +89,7 @@ void			read_clients(t_server *server)
 			{
 				printf("Received message from client (%s:%d): %s\n", \
 				get_client_addr(clients->in), get_client_port(clients->in), buffer);
+				handle(buffer);
 			}
 			else
 				disconnect_client(clients);
@@ -108,6 +116,7 @@ void			accept_client(t_server *server)
 			printf("New client connected from %s:%d\n", \
 			get_client_addr(client->in), get_client_port(client->in));
 			add_client(client);
+			client->send(client, WELCOME_MESSAGE);
 		}
 	}
 }

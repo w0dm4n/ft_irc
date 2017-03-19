@@ -35,10 +35,13 @@ LIBFT_LIB			=	$(LIBFT_DIR)libft.a
 SRCBASE_SERVEUR	=	\
 					server.c \
 					error.c  \
-					client.c
+					client.c \
+					handler.c
 
 SRCBASE_CLIENT		=	\
-					client.c
+					client.c \
+					error.c  \
+					host.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

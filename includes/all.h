@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   all.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/19 03:12:19 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/19 03:12:23 by frmarinh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ALL_H
 # define ALL_H
 
@@ -22,6 +34,7 @@ typedef struct			s_client
 	struct sockaddr_in	in;
 	struct s_client		*next;
 	struct s_client		*prev;
+	void				(*send)();
 }						t_client;
 
 typedef struct			s_server
@@ -31,23 +44,40 @@ typedef struct			s_server
 	fd_set				read_fds;
 }						t_server;
 
-void			print_error(char *msg, int exit_code);
-void			accept_client(t_server *server);
-char			*get_client_addr(struct sockaddr_in client);
-int				get_client_port(struct sockaddr_in client);
-void			read_clients(t_server *server);
 /*
-ERRNO DEFINITIONS
+** SERVER
+*/
+void					print_error(char *msg, int exit_code);
+void					accept_client(t_server *server);
+char					*get_client_addr(struct sockaddr_in client);
+int						get_client_port(struct sockaddr_in client);
+void					read_clients(t_server *server);
+void					handle(char *buffer);
+
+/*
+** CLIENT
+*/
+char					*get_host(int argc, char **argv);
+int						get_port(int argc, char **argv);
+
+# define CLEAR_SCREEN "\033[2J"
+# define RESET_CURSOR "\033[<1>C"
+/*
+** ERRNO DEFINITIONS
 */
 # define PERMISSION_DENIED 13
 # define ALREADY_IN_USE 48
 
 /*
-SOCKET SIZE DEFINE
+** SOCKET SIZE DEFINE
 */
-# define CLIENT_BUFFER 4096
-# define CLIENT_READ 1024
+# define CLIENT_BUFFER 8193
+# define CLIENT_READ 8192
 
+/*
+** MESSAGE
+*/
+# define WELCOME_MESSAGE "WM"
 t_client	*g_clients;
 
 #endif
