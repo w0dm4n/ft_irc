@@ -28,7 +28,77 @@ void		handle_entry(char *entry)
 {
 	if (entry[0] == '/')
 	{
-		ft_putstr("Coucou");
+		ft_putstr("Coucou\n");
+	}
+}
+
+void		check_welcome(char *message)
+{
+	if (ft_strcmp(message, WELCOME_MESSAGE))
+	{
+		printf("./client: Invalid message received from the server\n");
+		exit(0);
+	}
+	else
+	{
+		printf("You're successfully connected to the server !\n");
+		ft_putstr("[FT_IRC]: ");
+		// SEND WELCOME BACK TO SERVER
+	}
+}
+
+int			read_server(t_client *client)
+{
+	int 		res;
+	char		buffer[CLIENT_BUFFER];
+	static int first;
+
+	first = TRUE;
+	res = recv(client->fd, buffer, CLIENT_READ, 0);
+	if (res > 0)
+	{
+		if (first == TRUE)
+		{
+			check_welcome(buffer);	
+			first = FALSE;
+		}
+		//printf("Received message from server: %s\n", buffer);
+	}
+	return (res);
+}
+
+void		init_client(t_client *client)
+{
+	int 		res;
+	char		entry[CLIENT_BUFFER];
+
+	res = 0;
+	ft_bzero(entry, CLIENT_BUFFER);
+	while (client->connected != FALSE)
+	{
+		FD_ZERO(&client->read_fds);
+		FD_SET(client->fd, &client->read_fds);
+		FD_SET(STDIN_FILENO, &client->read_fds);
+		res = select(client->fd + 1, &client->read_fds, NULL, NULL, NULL);
+		if (res == -1)
+			print_error("An error occured with the select", -1);
+		if (FD_ISSET(STDIN_FILENO, &client->read_fds))
+		{
+			if ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
+			{
+				handle_entry(entry);
+				ft_bzero(entry, CLIENT_BUFFER);
+				ft_putstr("[FT_IRC]: ");
+			}
+		}
+		if (FD_ISSET(client->fd, &client->read_fds))
+		{
+			if ((read_server(client)) <= 0)
+			{
+				printf("You have been disconnected from the server\n");
+				client->connected = FALSE;
+			}
+		}
 	}
 }
 
@@ -36,7 +106,9 @@ void		connection(char *host, int port)
 {
 	t_client	*client;
 	char		entry[CLIENT_BUFFER];
+	static		int first;
 
+	first = TRUE;
 	if (!(client = get_client()))
 		return ;
 	if ((client->fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -44,16 +116,13 @@ void		connection(char *host, int port)
 	client->in.sin_addr.s_addr = inet_addr(host);
 	client->in.sin_family = AF_INET;
 	client->in.sin_port = htons(port);
-	if ((connect(client->fd, (struct sockaddr*)&client->in, sizeof(client->in))) < 0)
+	if ((connect(client->fd, (struct sockaddr*)&client->in, \
+		sizeof(client->in))) < 0)
 		print_error("Can't connect to remote server", -1);
+	client->connected = TRUE;
 	ft_bzero(entry, CLIENT_BUFFER);
 	ft_putstr("[FT_IRC]: ");
-	while ((read(0, entry, CLIENT_READ) > 0))
-	{
-		ft_putstr("[FT_IRC]: ");
-		handle_entry(entry);
-		ft_bzero(entry, CLIENT_BUFFER);
-	}
+	init_client(client);
 }
 
 int			main(int argc, char **argv)

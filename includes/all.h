@@ -34,7 +34,9 @@ typedef struct			s_client
 	struct sockaddr_in	in;
 	struct s_client		*next;
 	struct s_client		*prev;
+	fd_set				read_fds;
 	void				(*send)();
+	int					connected;
 }						t_client;
 
 typedef struct			s_server
@@ -59,6 +61,8 @@ void					handle(char *buffer);
 */
 char					*get_host(int argc, char **argv);
 int						get_port(int argc, char **argv);
+int						split_size(char **split);
+int						check_adress_v4(char *adress);
 
 # define CLEAR_SCREEN "\033[2J"
 # define RESET_CURSOR "\033[<1>C"

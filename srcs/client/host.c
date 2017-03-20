@@ -21,10 +21,10 @@ char	*get_host(int argc, char **argv)
 	{
 		split = ft_strsplit(argv[1], ':');
 		if (split[0] != NULL)
-			return ((ft_strlen(split[0]) <= 15) ? split[0] : NULL);
+			return ((check_adress_v4(split[0])) ? split[0] : NULL);
 	}
 	else
-		return (argv[1]);
+		return ((check_adress_v4(argv[1])) ? argv[1] : NULL);
 	return (NULL);
 }
 

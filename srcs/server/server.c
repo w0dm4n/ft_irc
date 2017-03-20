@@ -77,7 +77,7 @@ void			init_server(int port)
 		FD_SET(server->fd, &server->read_fds);
 		max_fd = add_clients_fd(server);
 		if ((res = select(max_fd, &server->read_fds, NULL, NULL, NULL)) < 0)
-			print_error("An error occured with the select", 0);
+			print_error("An error occured with the select", -1);
 		accept_client(server);
 		read_clients(server);
 	}
