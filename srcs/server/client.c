@@ -28,6 +28,7 @@ t_client		*alloc_new_client(void)
 	client->next = NULL;
 	client->fd = 0;
 	client->send = send_data;
+	client->first = TRUE;
 	return (client);
 }
 
@@ -77,19 +78,20 @@ void			read_clients(t_server *server)
 	char		buffer[CLIENT_BUFFER];
 	int			res;
 
-
 	res = 0;
 	clients = g_clients;
+	ft_bzero(buffer, CLIENT_BUFFER);
 	while (clients)
 	{
 		if (FD_ISSET(clients->fd, &server->read_fds))
 		{
 			res = recv(clients->fd, buffer, CLIENT_READ, 0);
-			if (res > 0)
+			if (res > 0 && ft_strlen(buffer))
 			{
 				printf("Received message from client (%s:%d): %s\n", \
 				get_client_addr(clients->in), get_client_port(clients->in), buffer);
-				handle(buffer);
+				handle(buffer, clients);
+				ft_bzero(buffer, CLIENT_BUFFER);
 			}
 			else
 				disconnect_client(clients);

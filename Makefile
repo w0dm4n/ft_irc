@@ -36,13 +36,15 @@ SRCBASE_SERVEUR	=	\
 					server.c \
 					error.c  \
 					client.c \
-					handler.c
+					handler.c \
+					welcome.c
 
 SRCBASE_CLIENT		=	\
 					client.c \
 					error.c  \
 					host.c	 \
-					utils.c
+					utils.c  \
+					handler.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

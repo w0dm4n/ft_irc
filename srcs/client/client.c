@@ -12,6 +12,12 @@
 
 #include "all.h"
 
+void			send_data(t_client *client, char *msg)
+{
+	if (client->fd)
+		write(client->fd, msg, ft_strlen(msg));
+}
+
 t_client	*get_client(void)
 {
 	t_client	*client;
@@ -21,18 +27,21 @@ t_client	*get_client(void)
 	client->fd = 0;
 	client->next = NULL;
 	client->prev = NULL;
+	client->first = TRUE;
+	client->send = send_data;
 	return (client);
 }
 
-void		handle_entry(char *entry)
+void		handle_entry(char *entry, t_client *client)
 {
 	if (entry[0] == '/')
 	{
+		client->send(client, "Coucou\0");
 		ft_putstr("Coucou\n");
 	}
 }
 
-void		check_welcome(char *message)
+void		check_welcome(char *message, t_client *client)
 {
 	if (ft_strcmp(message, WELCOME_MESSAGE))
 	{
@@ -43,7 +52,7 @@ void		check_welcome(char *message)
 	{
 		printf("You're successfully connected to the server !\n");
 		ft_putstr("[FT_IRC]: ");
-		// SEND WELCOME BACK TO SERVER
+		write(client->fd, WELCOME_BACK, ft_strlen(WELCOME_BACK));
 	}
 }
 
@@ -51,18 +60,15 @@ int			read_server(t_client *client)
 {
 	int 		res;
 	char		buffer[CLIENT_BUFFER];
-	static int first;
 
-	first = TRUE;
 	res = recv(client->fd, buffer, CLIENT_READ, 0);
 	if (res > 0)
 	{
-		if (first == TRUE)
+		if (client->first == TRUE)
 		{
-			check_welcome(buffer);	
-			first = FALSE;
+			check_welcome(buffer, client);	
+			client->first = FALSE;
 		}
-		//printf("Received message from server: %s\n", buffer);
 	}
 	return (res);
 }
@@ -86,7 +92,7 @@ void		init_client(t_client *client)
 		{
 			if ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
 			{
-				handle_entry(entry);
+				handle_entry(entry, client);
 				ft_bzero(entry, CLIENT_BUFFER);
 				ft_putstr("[FT_IRC]: ");
 			}

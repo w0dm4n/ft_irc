@@ -12,7 +12,10 @@
 
 #include "all.h"
 
-void	handle(char *buffer)
+void	handle(char *buffer, t_client *client)
 {
-	(void)buffer;
+	if (should_disconnect_client(buffer, client))
+		return ;
+	if (!ft_strcmp(buffer, WELCOME_BACK))
+		welcome(client);
 }

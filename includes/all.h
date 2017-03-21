@@ -37,6 +37,7 @@ typedef struct			s_client
 	fd_set				read_fds;
 	void				(*send)();
 	int					connected;
+	int					first;
 }						t_client;
 
 typedef struct			s_server
@@ -54,7 +55,10 @@ void					accept_client(t_server *server);
 char					*get_client_addr(struct sockaddr_in client);
 int						get_client_port(struct sockaddr_in client);
 void					read_clients(t_server *server);
-void					handle(char *buffer);
+void					handle(char *buffer, t_client *client);
+int						should_disconnect_client(char *buffer, \
+	t_client *client);
+void					welcome(t_client *client);
 
 /*
 ** CLIENT
@@ -79,9 +83,14 @@ int						check_adress_v4(char *adress);
 # define CLIENT_READ 8192
 
 /*
-** MESSAGE
+** SERVER MESSAGE
 */
-# define WELCOME_MESSAGE "WM"
+# define WELCOME_MESSAGE "WM\0"
+
+/*
+** CLIENT MESSAGE
+*/
+# define WELCOME_BACK "WB\0"
 t_client	*g_clients;
 
 #endif
