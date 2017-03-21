@@ -27,6 +27,7 @@
 # include <errno.h>
 # define TRUE 1
 # define FALSE 0
+# define MAX_PORT 65535
 
 typedef struct			s_client
 {
@@ -38,6 +39,8 @@ typedef struct			s_client
 	void				(*send)();
 	int					connected;
 	int					first;
+	char				*remote_host;
+	int					remote_port;
 }						t_client;
 
 typedef struct			s_server
@@ -47,6 +50,8 @@ typedef struct			s_server
 	fd_set				read_fds;
 }						t_server;
 
+void					remove_client(t_client **ptr, t_client *map);
+
 /*
 ** SERVER
 */
@@ -55,7 +60,7 @@ void					accept_client(t_server *server);
 char					*get_client_addr(struct sockaddr_in client);
 int						get_client_port(struct sockaddr_in client);
 void					read_clients(t_server *server);
-void					handle(char *buffer, t_client *client);
+int						handle(char *buffer, t_client *client);
 int						should_disconnect_client(char *buffer, \
 	t_client *client);
 void					welcome(t_client *client);
@@ -67,6 +72,17 @@ char					*get_host(int argc, char **argv);
 int						get_port(int argc, char **argv);
 int						split_size(char **split);
 int						check_adress_v4(char *adress);
+void					print_prompt(t_client *client);
+void					connection(char *host, int port);
+int						connect_cmd(char **split);
+int						disconnect(t_client	*client);
+
+/*
+** COMMANDS
+*/
+# define CONNECT_COMMAND "/connect"
+# define CLEAR_COMMAND "/clear"
+# define DISCONNECT_COMMAND "/disconnect"
 
 # define CLEAR_SCREEN "\033[2J"
 # define RESET_CURSOR "\033[<1>C"

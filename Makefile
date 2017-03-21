@@ -44,7 +44,10 @@ SRCBASE_CLIENT		=	\
 					error.c  \
 					host.c	 \
 					utils.c  \
-					handler.c
+					handler.c \
+					connect.c \
+					prompt.c  \
+					disconnect.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

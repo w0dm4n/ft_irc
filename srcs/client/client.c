@@ -18,7 +18,7 @@ void			send_data(t_client *client, char *msg)
 		write(client->fd, msg, ft_strlen(msg));
 }
 
-t_client	*get_client(void)
+t_client	*get_client(char *host, int port)
 {
 	t_client	*client;
 	if (!(client = (t_client*)malloc(sizeof(struct s_client))))
@@ -29,29 +29,23 @@ t_client	*get_client(void)
 	client->prev = NULL;
 	client->first = TRUE;
 	client->send = send_data;
+	client->remote_host = host;
+	client->remote_port = port;
 	return (client);
-}
-
-void		handle_entry(char *entry, t_client *client)
-{
-	if (entry[0] == '/')
-	{
-		client->send(client, "Coucou\0");
-		ft_putstr("Coucou\n");
-	}
 }
 
 void		check_welcome(char *message, t_client *client)
 {
 	if (ft_strcmp(message, WELCOME_MESSAGE))
 	{
-		printf("./client: Invalid message received from the server\n");
-		exit(0);
+		printf("Invalid message received from the server: %s\n", message);
+		disconnect(client);
 	}
 	else
 	{
 		printf("You're successfully connected to the server !\n");
-		ft_putstr("[FT_IRC]: ");
+		client->connected = TRUE;
+		print_prompt(client);
 		write(client->fd, WELCOME_BACK, ft_strlen(WELCOME_BACK));
 	}
 }
@@ -70,6 +64,7 @@ int			read_server(t_client *client)
 			client->first = FALSE;
 		}
 	}
+	ft_bzero(buffer, CLIENT_BUFFER);
 	return (res);
 }
 
@@ -92,9 +87,9 @@ void		init_client(t_client *client)
 		{
 			if ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
 			{
-				handle_entry(entry, client);
+				if ((handle(entry, client) == TRUE))
+					print_prompt(client);
 				ft_bzero(entry, CLIENT_BUFFER);
-				ft_putstr("[FT_IRC]: ");
 			}
 		}
 		if (FD_ISSET(client->fd, &client->read_fds))
@@ -102,7 +97,7 @@ void		init_client(t_client *client)
 			if ((read_server(client)) <= 0)
 			{
 				printf("You have been disconnected from the server\n");
-				client->connected = FALSE;
+				disconnect(client);
 			}
 		}
 	}
@@ -115,20 +110,42 @@ void		connection(char *host, int port)
 	static		int first;
 
 	first = TRUE;
-	if (!(client = get_client()))
+	if (!(client = get_client(host, port)))
 		return ;
 	if ((client->fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-		print_error("Can't create socket", -1);
+	{
+		print_error("Can't create socket", 0);
+		return ;
+	}
 	client->in.sin_addr.s_addr = inet_addr(host);
 	client->in.sin_family = AF_INET;
 	client->in.sin_port = htons(port);
 	if ((connect(client->fd, (struct sockaddr*)&client->in, \
 		sizeof(client->in))) < 0)
-		print_error("Can't connect to remote server", -1);
+	{
+		print_error("Can't connect to remote server", 0);
+		return ;
+	}
 	client->connected = TRUE;
 	ft_bzero(entry, CLIENT_BUFFER);
-	ft_putstr("[FT_IRC]: ");
+	print_prompt(client);
 	init_client(client);
+}
+
+void		handle_connect(void)
+{
+	char		entry[CLIENT_BUFFER];
+
+	print_prompt(NULL);
+	ft_putstr("Please use /connect to authenticate !\n");
+	print_prompt(NULL);
+	ft_bzero(entry, CLIENT_BUFFER);
+	while ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
+	{
+		handle(entry, NULL);
+		ft_bzero(entry, CLIENT_BUFFER);
+		print_prompt(NULL);
+	}
 }
 
 int			main(int argc, char **argv)
@@ -146,5 +163,5 @@ int			main(int argc, char **argv)
 			printf("./client: Syntax error (\"host:port\" or \"host\" \"port\")\n");
 	}
 	else
-		printf("./client: Syntax error (\"host:port\" or \"host\" \"port\")\n");
+		handle_connect();
 }
