@@ -24,6 +24,7 @@ void				ft_putstr_fd(char *str, int fd);
 void				ft_putnbr_fd(long int nbr, int fd);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_atoi(char *str);
+int					ft_atoi_base(const char *str, int str_base);
 void				*ft_memset(void *str, int c, size_t length);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *str1, const void *str2, size_t n);
@@ -93,4 +94,5 @@ char				*ft_add_in(char *buffer, char *toadd, int oct, int i);
 int					ft_check_fd(int *array, int const fd);
 char				*ft_strndup(char *string, size_t size);
 char				*ft_charcat(char *str, char toadd);
+char				*ft_strreverse(char *str);
 #endif

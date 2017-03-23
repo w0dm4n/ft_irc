@@ -34,7 +34,7 @@ t_server		*get_socket(int port)
 		print_error("Can't create socket", -1);
 	server->in.sin_family = AF_INET;
 	server->in.sin_addr.s_addr = INADDR_ANY;
-	server->in.sin_port  = htons(port);
+	server->in.sin_port = htons(port);
 	if ((setsockopt(server->fd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, \
 		sizeof(opt))) < 0)
 		print_error("Can't allow multiple connection on socket", -1);
@@ -47,7 +47,7 @@ t_server		*get_socket(int port)
 	return (server);
 }
 
-int			add_clients_fd(t_server *server)
+int				add_clients_fd(t_server *server)
 {
 	t_client	*clients;
 	int			max_fd;
@@ -85,6 +85,16 @@ void			init_server(int port)
 
 int				main(int argc, char **argv)
 {
+	printf("%s'########:'########::::::::::'####:'########:::'######::\n", \
+		KCYN);
+	printf("##.....::... ##..:::::::::::. ##:: ##.... ##:'##... ##:\n");
+	printf("##:::::::::: ##:::::::::::::: ##:: ##:::: ##: ##:::..::\n");
+	printf("######:::::: ##:::::::::::::: ##:: ########:: ##:::::::\n");
+	printf("##...::::::: ##:::::::::::::: ##:: ##.. ##::: ##:::::::\n");
+	printf("##:::::::::: ##:::::::::::::: ##:: ##::. ##:: ##::: ##:\n");
+	printf("##:::::::::: ##::::'#######:'####: ##:::. ##:. ######::\n");
+	printf("..:::::::::::..:::::.......::....::..:::::..:::......:::%s\n", \
+		KNRM);
 	if (argc == 2)
 		init_server(ft_atoi(argv[1]));
 	else

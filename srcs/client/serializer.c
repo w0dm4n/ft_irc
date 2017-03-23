@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disconnect.c                                       :+:      :+:    :+:   */
+/*   serializer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 20:52:29 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/21 20:52:30 by frmarinh         ###   ########.fr       */
+/*   Created: 2017/03/23 02:21:31 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/23 02:21:32 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-int		disconnect(t_client *client)
+char	*serializer(char *msg_type, char *data)
 {
-	if (client && client->connected == TRUE)
-	{
-		client->connected = FALSE;
-		close(client->fd);
-		return (FALSE);
-	}
-	return (TRUE);
+	if (!ft_strncmp(msg_type, NICK_MESSAGE, ft_strlen(NICK_MESSAGE)))
+		return (serialize_nick(data));
+	return ("Unknown");
 }

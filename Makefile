@@ -6,7 +6,7 @@
 #    By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/20 17:57:50 by frmarinh          #+#    #+#              #
-#    Updated: 2017/03/15 18:59:12 by frmarinh         ###   ########.fr        #
+#    Updated: 2017/03/23 00:49:52 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,11 @@ SRCBASE_SERVEUR	=	\
 					error.c  \
 					client.c \
 					handler.c \
-					welcome.c
+					welcome.c \
+					encryption.c \
+					utils.c   \
+					nickname.c \
+					serializer.c
 
 SRCBASE_CLIENT		=	\
 					client.c \
@@ -47,7 +51,14 @@ SRCBASE_CLIENT		=	\
 					handler.c \
 					connect.c \
 					prompt.c  \
-					disconnect.c
+					disconnect.c \
+					help.c    \
+					encryption.c \
+					nickname.c \
+					serializer.c \
+					from_server.c \
+					channel.c \
+					join.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

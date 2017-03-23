@@ -12,15 +12,36 @@
 
 #include "all.h"
 
+void	print_nickname(char *nickname)
+{
+	ft_putstr(")] [");
+	ft_putstr(KYEL);
+	ft_putstr(nickname);
+	ft_putstr(KNRM);
+	ft_putstr("]: ");
+}
+
+void	print_host(t_client *client)
+{
+	ft_putstr(KGRN);
+	ft_putstr(client->remote_host);
+	ft_putstr(KNRM);
+	ft_putstr(":");
+	ft_putstr(KGRN);
+	ft_putnbr(client->remote_port);
+	ft_putstr(KNRM);
+}
+
 void	print_prompt(t_client *client)
 {
 	if (client != NULL && client->connected == TRUE)
 	{
 		ft_putstr("[FT_IRC (");
-		ft_putstr(client->remote_host);
-		ft_putstr(":");
-		ft_putnbr(client->remote_port);
-		ft_putstr(")]: ");
+		print_host(client);
+		if (client->nickname == NULL)
+			ft_putstr(")]: ");
+		else
+			print_nickname(client->nickname);
 	}
 	else
 		ft_putstr("[FT_IRC]: ");

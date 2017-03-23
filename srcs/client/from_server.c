@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disconnect.c                                       :+:      :+:    :+:   */
+/*   from_server.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 20:52:29 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/21 20:52:30 by frmarinh         ###   ########.fr       */
+/*   Created: 2017/03/23 03:40:31 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/23 03:40:32 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-int		disconnect(t_client *client)
+void		informations(char **data, t_client *client)
 {
-	if (client && client->connected == TRUE)
+	if (data[1])
 	{
-		client->connected = FALSE;
-		close(client->fd);
-		return (FALSE);
+		printf("%sSERVER: %s%s\n", KCYN, data[1], KNRM);
+		print_prompt(client);
 	}
-	return (TRUE);
+}
+
+void		from_server(char *msg, t_client *client)
+{
+	char	**split;
+
+	split = ft_strsplit(msg, ESCAPE_CHAR[0]);
+	if (split[0] != NULL)
+	{
+		if (!ft_strcmp(split[0], NICK_MESSAGE))
+			set_nickname(split, client);
+		else if (!ft_strcmp(split[0], INFO_MESSAGE))
+			informations(split, client);
+	}
 }

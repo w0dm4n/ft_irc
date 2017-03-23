@@ -12,13 +12,19 @@
 
 #include "all.h"
 
-void			send_data(t_client *client, char *msg)
+void				send_data(t_client *client, char *msg)
 {
+	msg = encrypt_message(msg);
 	if (client->fd)
+	{
 		write(client->fd, msg, ft_strlen(msg));
+		printf("%sMessage sent to client (%s:%d): %s%s\n", KYEL, \
+			get_client_addr(client->in), get_client_port(client->in), \
+			msg, KNRM);
+	}
 }
 
-t_client		*alloc_new_client(void)
+t_client			*alloc_new_client(void)
 {
 	t_client	*client;
 
@@ -29,10 +35,12 @@ t_client		*alloc_new_client(void)
 	client->fd = 0;
 	client->send = send_data;
 	client->first = TRUE;
+	client->nickname = NULL;
+	client->serialize = serializer;
 	return (client);
 }
 
-void	remove_client(t_client **ptr, t_client *map)
+void				remove_client(t_client **ptr, t_client *map)
 {
 	t_client	tmp;
 
@@ -48,7 +56,7 @@ void	remove_client(t_client **ptr, t_client *map)
 	}
 }
 
-void			add_client(t_client *client)
+void				add_client(t_client *client)
 {
 	t_client	*clients;
 
@@ -64,15 +72,16 @@ void			add_client(t_client *client)
 		g_clients = client;
 }
 
-void			disconnect_client(t_client *client)
+void				disconnect_client(t_client *client)
 {
 	remove_client(&g_clients, client);
 	close(client->fd);
-	printf("One client disconnected (%s:%d)\n", \
-			get_client_addr(client->in), get_client_port(client->in));
+	printf("%sOne client disconnected (%s:%d)%s\n", KRED,\
+			get_client_addr(client->in), get_client_port(client->in), \
+			KNRM);
 }
 
-void			read_clients(t_server *server)
+void				read_clients(t_server *server)
 {
 	t_client	*clients;
 	char		buffer[CLIENT_BUFFER];
@@ -88,9 +97,10 @@ void			read_clients(t_server *server)
 			res = recv(clients->fd, buffer, CLIENT_READ, 0);
 			if (res > 0 && ft_strlen(buffer))
 			{
-				printf("Received message from client (%s:%d): %s\n", \
-				get_client_addr(clients->in), get_client_port(clients->in), buffer);
-				handle(buffer, clients);
+				printf("%sReceived message from client (%s:%d): %s%s\n", KMAG, \
+				get_client_addr(clients->in), get_client_port(clients->in), \
+				buffer, KNRM);
+				handle(decrypt_message(ft_strdup(buffer)), clients);
 				ft_bzero(buffer, CLIENT_BUFFER);
 			}
 			else
@@ -100,7 +110,7 @@ void			read_clients(t_server *server)
 	}
 }
 
-void			accept_client(t_server *server)
+void				accept_client(t_server *server)
 {
 	t_client	*client;
 	socklen_t	length;
@@ -111,12 +121,14 @@ void			accept_client(t_server *server)
 		if (!(client = alloc_new_client()))
 			return ;
 		length = sizeof(client->in);
-		if ((client->fd = accept(server->fd, (struct sockaddr*)&client->in, &length)) == -1)
+		if ((client->fd = \
+			accept(server->fd, (struct sockaddr*)&client->in, &length)) == -1)
 			print_error("Can't accept client connection", 0);
 		else
 		{
-			printf("New client connected from %s:%d\n", \
-			get_client_addr(client->in), get_client_port(client->in));
+			printf("%sNew client connected from %s:%d%s\n", KGRN, \
+			get_client_addr(client->in), get_client_port(client->in), \
+			KNRM);
 			add_client(client);
 			client->send(client, WELCOME_MESSAGE);
 		}

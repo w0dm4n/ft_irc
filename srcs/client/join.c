@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disconnect.c                                       :+:      :+:    :+:   */
+/*   join.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 20:52:29 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/21 20:52:30 by frmarinh         ###   ########.fr       */
+/*   Created: 2017/03/23 06:06:19 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/23 06:06:20 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-int		disconnect(t_client *client)
+void		join(t_client *client, char *channel)
 {
-	if (client && client->connected == TRUE)
+	if (client != NULL)
 	{
-		client->connected = FALSE;
-		close(client->fd);
-		return (FALSE);
+		if (client->nickname != NULL && client->connected)
+		{
+			printf("Welcome to %s\n", channel);
+		}
+		else
+		{
+			printf("/join: You have to select a nickname before ");
+			printf("joining a channel\n");
+		}
 	}
-	return (TRUE);
+	else
+		printf("/join: Please connect first !\n");
 }

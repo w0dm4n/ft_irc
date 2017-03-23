@@ -12,8 +12,9 @@
 
 #include "all.h"
 
-void			send_data(t_client *client, char *msg)
+void		send_data(t_client *client, char *msg)
 {
+	msg = encrypt_message(msg);
 	if (client->fd)
 		write(client->fd, msg, ft_strlen(msg));
 }
@@ -21,9 +22,9 @@ void			send_data(t_client *client, char *msg)
 t_client	*get_client(char *host, int port)
 {
 	t_client	*client;
+
 	if (!(client = (t_client*)malloc(sizeof(struct s_client))))
 		return (NULL);
-
 	client->fd = 0;
 	client->next = NULL;
 	client->prev = NULL;
@@ -31,6 +32,8 @@ t_client	*get_client(char *host, int port)
 	client->send = send_data;
 	client->remote_host = host;
 	client->remote_port = port;
+	client->serialize = serializer;
+	client->nickname = NULL;
 	return (client);
 }
 
@@ -46,13 +49,13 @@ void		check_welcome(char *message, t_client *client)
 		printf("You're successfully connected to the server !\n");
 		client->connected = TRUE;
 		print_prompt(client);
-		write(client->fd, WELCOME_BACK, ft_strlen(WELCOME_BACK));
+		client->send(client, WELCOME_BACK);
 	}
 }
 
 int			read_server(t_client *client)
 {
-	int 		res;
+	int			res;
 	char		buffer[CLIENT_BUFFER];
 
 	res = recv(client->fd, buffer, CLIENT_READ, 0);
@@ -60,17 +63,30 @@ int			read_server(t_client *client)
 	{
 		if (client->first == TRUE)
 		{
-			check_welcome(buffer, client);	
+			check_welcome(decrypt_message(ft_strdup(buffer)), \
+				client);
 			client->first = FALSE;
 		}
+		else
+			from_server(decrypt_message(ft_strdup(buffer)), client);
 	}
 	ft_bzero(buffer, CLIENT_BUFFER);
 	return (res);
 }
 
+void		read_entry(char *entry, t_client *client)
+{
+	if ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
+	{
+		if ((handle(entry, client) == TRUE))
+			print_prompt(client);
+		ft_bzero(entry, CLIENT_BUFFER);
+	}
+}
+
 void		init_client(t_client *client)
 {
-	int 		res;
+	int			res;
 	char		entry[CLIENT_BUFFER];
 
 	res = 0;
@@ -84,14 +100,7 @@ void		init_client(t_client *client)
 		if (res == -1)
 			print_error("An error occured with the select", -1);
 		if (FD_ISSET(STDIN_FILENO, &client->read_fds))
-		{
-			if ((read(STDIN_FILENO, entry, CLIENT_READ)) > 0)
-			{
-				if ((handle(entry, client) == TRUE))
-					print_prompt(client);
-				ft_bzero(entry, CLIENT_BUFFER);
-			}
-		}
+			read_entry(entry, client);
 		if (FD_ISSET(client->fd, &client->read_fds))
 		{
 			if ((read_server(client)) <= 0)
@@ -107,7 +116,7 @@ void		connection(char *host, int port)
 {
 	t_client	*client;
 	char		entry[CLIENT_BUFFER];
-	static		int first;
+	static int	first;
 
 	first = TRUE;
 	if (!(client = get_client(host, port)))
@@ -157,10 +166,21 @@ int			main(int argc, char **argv)
 	port = 0;
 	if (argc == 2 || argc == 3)
 	{
-		if ((host = get_host(argc, argv)) != NULL && (port = get_port(argc, argv)) > 0)
-			connection(host, port);
+		if ((host = get_host(argc, argv)) != NULL)
+		{
+			if ((port = get_port(argc, argv)) > 0)
+				connection(host, port);
+			else
+			{
+				printf("./client: Syntax error");
+				printf(" (\"host:port\" or \"host\" \"port\")\n");
+			}
+		}
 		else
-			printf("./client: Syntax error (\"host:port\" or \"host\" \"port\")\n");
+		{
+			printf("./client: Syntax error");
+			printf(" (\"host:port\" or \"host\" \"port\")\n");
+		}
 	}
 	else
 		handle_connect();

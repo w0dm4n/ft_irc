@@ -29,10 +29,16 @@ void	connect_imbricate(char *data)
 		printf("/connect: Syntax error (\"host:port\" or \"host\" \"port\")\n");
 }
 
-int		connect_cmd(char **split)
+int		connect_cmd(char **split, t_client *client)
 {
 	int		port;
 
+	if (client != NULL && client->connected == TRUE)
+	{
+		printf("/connect: You're already connected to server %s:%d\n", \
+			client->remote_host, client->remote_port);
+		return (TRUE);
+	}
 	port = 0;
 	if (split[1] != NULL && split[2] != NULL)
 	{
@@ -40,7 +46,10 @@ int		connect_cmd(char **split)
 		if (check_adress_v4(split[1]) && (port > 0 && port <= MAX_PORT))
 			connection(split[1], port);
 		else
-			printf("/connect: Syntax error (\"host:port\" or \"host\" \"port\")\n");
+		{
+			printf("/connect: Syntax error ");
+			printf("(\"host:port\" or \"host\" \"port\")\n");
+		}
 	}
 	else if (split[1] != NULL && split[2] == NULL)
 		connect_imbricate(split[1]);
