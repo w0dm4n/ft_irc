@@ -29,11 +29,12 @@
 # define FALSE 0
 # define MAX_PORT 65535
 # define ENCRYPTION_KEY "@#$KGERNGJR$#^#$#@(CG@$)+="
+# define MAX_PACKET_SIZE 512
 
 /*
 ** COLORS
 */
-# define KNRM  "\x1B[0m"
+# define KNRM  "\e[38;05;194m"
 # define KRED  "\x1B[31m"
 # define KGRN  "\x1B[32m"
 # define KYEL  "\x1B[33m"
@@ -50,6 +51,13 @@
 # define NICK_NOT_AVAILABLE \
 "This nickname is already taken, please chose another oner !\0"
 
+typedef struct			s_channel
+{
+	char				*name;
+	struct s_channel	*next;
+	struct s_channel	*prev;
+}						t_channel;
+
 typedef struct			s_client
 {
 	int					fd;
@@ -64,6 +72,7 @@ typedef struct			s_client
 	char				*remote_host;
 	int					remote_port;
 	char				*nickname;
+	t_channel			*channel;
 }						t_client;
 
 typedef struct			s_server
@@ -72,13 +81,6 @@ typedef struct			s_server
 	struct sockaddr_in	in;
 	fd_set				read_fds;
 }						t_server;
-
-typedef struct			s_channel
-{
-	char				*name;
-	struct s_channel	*next;
-	struct s_channel	*prev;
-}						t_channel;
 
 void					remove_client(t_client **ptr, t_client *map);
 
@@ -95,6 +97,11 @@ int						should_disconnect_client(char *buffer, \
 	t_client *client);
 void					welcome(t_client *client);
 void					nickname_server(char *nickname, t_client *client);
+void					join_server(char *channel, t_client *client);
+void					join_channel(char *name, t_client *client);
+void					talk_channel_server(char **data, \
+	t_client *client, t_channel *channel);
+void					notif_channel(t_channel *channel, t_client *client);
 
 /*
 ** CLIENT
@@ -113,16 +120,22 @@ void					nickname(t_client *client, char *nickname);
 void					from_server(char *msg, t_client *client);
 void					set_nickname(char **data, t_client *client);
 void					join(t_client *client, char *channel);
+void					set_channel(char *channel, t_client *client);
+int						talk_channel(char *msg, t_client *client, t_channel *channel);
+void					channel_message(char *author, char *msg, t_client *client);
 
 /*
 ** BOTH SIDE
 */
 char					*serializer(char *msg_type, char *data);
 char					*serialize_nick(char *data);
+char					*serialize_join(char *data);
 char					*encrypt_message(char *msg);
 char 					*decrypt_message(char *crypted);
 char					*int_to_hexastring(char c);
 char					hexastring_to_int(char *s);
+char					*serialize_join(char *data);
+char					*serialize_channel_msg(char *data);
 
 /*
 ** COMMANDS
@@ -157,6 +170,8 @@ char					hexastring_to_int(char *s);
 # define WELCOME_BACK "WELCOME_BACK\0"
 # define NICK_MESSAGE "NICKNAME\0"
 # define INFO_MESSAGE "INFORMATIONS\0"
+# define JOIN_MESSAGE "JOIN_CHANNEL\0"
+# define CHANNEL_MESSAGE "CHANNEL_MESSAGE\0"
 t_client	*g_clients;
 
 #endif

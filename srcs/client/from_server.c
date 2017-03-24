@@ -32,5 +32,9 @@ void		from_server(char *msg, t_client *client)
 			set_nickname(split, client);
 		else if (!ft_strcmp(split[0], INFO_MESSAGE))
 			informations(split, client);
+		else if (!ft_strcmp(split[0], JOIN_MESSAGE))
+			set_channel(split[1], client);
+		else if (!ft_strcmp(split[0], CHANNEL_MESSAGE))
+			channel_message(split[1], split[2], client);
 	}
 }

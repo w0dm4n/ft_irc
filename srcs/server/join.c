@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serializer.c                                       :+:      :+:    :+:   */
+/*   join.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 02:21:31 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/23 02:21:32 by frmarinh         ###   ########.fr       */
+/*   Created: 2017/03/23 22:30:57 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/23 22:31:13 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-char	*serialize_info(char *data)
+char		*serialize_join(char *data)
 {
 	char	*to_send;
 
 	if (!(to_send = ft_strnew(CLIENT_READ)))
 		return (NULL);
-	ft_strcat(to_send, INFO_MESSAGE);
+	ft_strcat(to_send, JOIN_MESSAGE);
 	ft_strcat(to_send, ESCAPE_CHAR);
 	ft_strcat(to_send, data);
 	return (to_send);
 }
 
-char	*serializer(char *msg_type, char *data)
+void		join_server(char *channel, t_client *client)
 {
-	if (!ft_strncmp(msg_type, NICK_MESSAGE, ft_strlen(NICK_MESSAGE)))
-		return (serialize_nick(data));
-	if (!ft_strncmp(msg_type, INFO_MESSAGE, ft_strlen(INFO_MESSAGE)))
-		return (serialize_info(data));
-	if (!ft_strncmp(msg_type, JOIN_MESSAGE, ft_strlen(JOIN_MESSAGE)))
-		return (serialize_join(data));
-	if (!ft_strncmp(msg_type, CHANNEL_MESSAGE, ft_strlen(CHANNEL_MESSAGE)))
-		return (serialize_channel_msg(data));
-	return ("Unknown");
+	if (channel != NULL && client != NULL)
+		join_channel(ft_strtolower(channel), client);
+	else
+		client->send(client, \
+			client->serialize(INFO_MESSAGE, \
+				"An error occured while you was trying to join a channel"));
 }

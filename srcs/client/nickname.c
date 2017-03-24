@@ -38,7 +38,7 @@ void	nickname(t_client *client, char *nickname)
 {
 	if (client != NULL && client->connected == TRUE)
 	{
-		if (nickname != NULL)
+		if (nickname != NULL && ft_strlen(replace_newline(nickname)) > 0)
 			client->send(client, client->serialize(NICK_MESSAGE, replace_newline(nickname)));
 		else
 			printf("/nick: Syntax error (/nick nickname)\n");

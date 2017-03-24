@@ -12,13 +12,41 @@
 
 #include "all.h"
 
+char		*serialize_join(char *data)
+{
+	char	*to_send;
+
+	if (!(to_send = ft_strnew(CLIENT_READ)))
+		return (NULL);
+	ft_strcat(to_send, JOIN_MESSAGE);
+	ft_strcat(to_send, ESCAPE_CHAR);
+	ft_strcat(to_send, data);
+	return (to_send);
+}
+
+int			in_channel(t_client *client, char *channel)
+{
+	channel = ft_strtolower(replace_newline(channel));
+	if (client->channel != NULL)
+		if (!ft_strcmp(client->channel->name, channel))
+			return (TRUE);
+	return (FALSE);
+}
+
 void		join(t_client *client, char *channel)
 {
 	if (client != NULL)
 	{
 		if (client->nickname != NULL && client->connected)
 		{
-			printf("Welcome to %s\n", channel);
+			if (channel != NULL)
+			{
+				if (!in_channel(client, channel))
+					client->send(client, client->serialize(JOIN_MESSAGE, \
+						replace_newline(channel)));
+			}
+			else
+				printf("/join: Syntax error (/join channel)\n");
 		}
 		else
 		{

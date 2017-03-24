@@ -16,7 +16,10 @@ void		send_data(t_client *client, char *msg)
 {
 	msg = encrypt_message(msg);
 	if (client->fd)
+	{
 		write(client->fd, msg, ft_strlen(msg));
+		ft_bzero(msg, ft_strlen(msg));
+	}
 }
 
 t_client	*get_client(char *host, int port)
@@ -34,6 +37,7 @@ t_client	*get_client(char *host, int port)
 	client->remote_port = port;
 	client->serialize = serializer;
 	client->nickname = NULL;
+	client->channel = NULL;
 	return (client);
 }
 
@@ -61,16 +65,17 @@ int			read_server(t_client *client)
 	res = recv(client->fd, buffer, CLIENT_READ, 0);
 	if (res > 0)
 	{
+		buffer[res] = '\0';
 		if (client->first == TRUE)
 		{
-			check_welcome(decrypt_message(ft_strdup(buffer)), \
+			check_welcome(decrypt_message(buffer), \
 				client);
 			client->first = FALSE;
 		}
 		else
-			from_server(decrypt_message(ft_strdup(buffer)), client);
+			from_server(decrypt_message(buffer), client);
+		ft_bzero(buffer, CLIENT_BUFFER);
 	}
-	ft_bzero(buffer, CLIENT_BUFFER);
 	return (res);
 }
 
@@ -116,9 +121,7 @@ void		connection(char *host, int port)
 {
 	t_client	*client;
 	char		entry[CLIENT_BUFFER];
-	static int	first;
 
-	first = TRUE;
 	if (!(client = get_client(host, port)))
 		return ;
 	if ((client->fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)

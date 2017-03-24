@@ -16,6 +16,10 @@ int		handle_esc(char **split, t_client *client, char *data)
 {
 	if (!ft_strcmp(split[0], NICK_MESSAGE))
 		nickname_server(split[1], client);
+	else if (!ft_strcmp(split[0], JOIN_MESSAGE))
+		join_server(split[1], client);
+	else if (!ft_strcmp(split[0], CHANNEL_MESSAGE))
+		talk_channel_server(split, client, client->channel);
 	else
 		printf("%sMessage not handled: %s from %s:%d%s\n", \
 			KYEL, data, get_client_addr(client->in), \

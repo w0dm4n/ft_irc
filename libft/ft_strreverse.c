@@ -6,7 +6,7 @@
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 23:55:49 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/22 23:55:50 by frmarinh         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:17:09 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_strreverse(char *str)
 	i = (ft_strlen(str) - 1);
 	while (str[i])
 		new[n++] = str[i--];
-	new[i] = '\0';
-	ft_strdel(&str);
+	new[n] = '\0';
 	return (new);
 }

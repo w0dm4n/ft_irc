@@ -21,7 +21,12 @@ int		handle_suite(char *entry, t_client *client, char **split)
 	else if (!ft_strncmp(split[0], JOIN_COMMAND, ft_strlen(JOIN_COMMAND)))
 		join(client, (split[1]) ? split[1] : NULL);
 	else
-		printf("Command not recognized, please type /help.\n");
+	{
+		if (client != NULL && client->channel != NULL)
+			return (talk_channel(entry, client, client->channel));
+		else
+			printf("Please connect to a channel or use a command.\n");
+	}
 	return (TRUE);
 }
 

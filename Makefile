@@ -6,7 +6,7 @@
 #    By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/20 17:57:50 by frmarinh          #+#    #+#              #
-#    Updated: 2017/03/23 00:49:52 by frmarinh         ###   ########.fr        #
+#    Updated: 2017/03/24 04:06:43 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MAX_COLS	=	$$(echo "$$(tput cols)-24-$(LENGTHNAME)"|bc)
 
 CC			=	gcc 
 #FLAGS		=	-Wall -Wextra -Werror -O3
-FLAGS       =
+FLAGS       =  -ggdb
 FLAGS_O		=	
 
 SRCDIR_SERVEUR		=	srcs/server/
@@ -41,7 +41,10 @@ SRCBASE_SERVEUR	=	\
 					encryption.c \
 					utils.c   \
 					nickname.c \
-					serializer.c
+					serializer.c \
+					join.c     \
+					channel.c  \
+					talk_channel.c \
 
 SRCBASE_CLIENT		=	\
 					client.c \

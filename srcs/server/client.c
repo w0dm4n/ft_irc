@@ -21,6 +21,7 @@ void				send_data(t_client *client, char *msg)
 		printf("%sMessage sent to client (%s:%d): %s%s\n", KYEL, \
 			get_client_addr(client->in), get_client_port(client->in), \
 			msg, KNRM);
+		ft_bzero(msg, ft_strlen(msg));
 	}
 }
 
@@ -37,6 +38,7 @@ t_client			*alloc_new_client(void)
 	client->first = TRUE;
 	client->nickname = NULL;
 	client->serialize = serializer;
+	client->channel = NULL;
 	return (client);
 }
 
@@ -97,10 +99,12 @@ void				read_clients(t_server *server)
 			res = recv(clients->fd, buffer, CLIENT_READ, 0);
 			if (res > 0 && ft_strlen(buffer))
 			{
+				buffer[res] = '\0';
 				printf("%sReceived message from client (%s:%d): %s%s\n", KMAG, \
 				get_client_addr(clients->in), get_client_port(clients->in), \
 				buffer, KNRM);
-				handle(decrypt_message(ft_strdup(buffer)), clients);
+				if (ft_strlen(buffer) <= MAX_PACKET_SIZE)
+					handle(decrypt_message(buffer), clients);
 				ft_bzero(buffer, CLIENT_BUFFER);
 			}
 			else

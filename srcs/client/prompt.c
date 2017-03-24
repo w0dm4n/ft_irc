@@ -12,13 +12,25 @@
 
 #include "all.h"
 
-void	print_nickname(char *nickname)
+void	print_channel(t_channel *channel)
+{
+	ft_putstr("] [");
+	ft_putstr(KRED);
+	ft_putstr(channel->name);
+	ft_putstr(KNRM);
+	ft_putstr("]: ");
+}
+
+void	print_nickname(t_client *client)
 {
 	ft_putstr(")] [");
 	ft_putstr(KYEL);
-	ft_putstr(nickname);
+	ft_putstr(client->nickname);
 	ft_putstr(KNRM);
-	ft_putstr("]: ");
+	if (client->channel == NULL)
+		ft_putstr("]: ");
+	else
+		print_channel(client->channel);
 }
 
 void	print_host(t_client *client)
@@ -36,12 +48,13 @@ void	print_prompt(t_client *client)
 {
 	if (client != NULL && client->connected == TRUE)
 	{
+		ft_putstr(KNRM);
 		ft_putstr("[FT_IRC (");
 		print_host(client);
 		if (client->nickname == NULL)
 			ft_putstr(")]: ");
 		else
-			print_nickname(client->nickname);
+			print_nickname(client);
 	}
 	else
 		ft_putstr("[FT_IRC]: ");

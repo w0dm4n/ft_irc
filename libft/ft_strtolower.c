@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serializer.c                                       :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 02:21:31 by frmarinh          #+#    #+#             */
-/*   Updated: 2017/03/23 02:21:32 by frmarinh         ###   ########.fr       */
+/*   Created: 2017/03/24 05:25:57 by frmarinh          #+#    #+#             */
+/*   Updated: 2017/03/24 05:25:58 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "libft.h"
 
-char	*serializer(char *msg_type, char *data)
+char	*ft_strtolower(char *string)
 {
-	if (!ft_strncmp(msg_type, NICK_MESSAGE, ft_strlen(NICK_MESSAGE)))
-		return (serialize_nick(data));
-	if (!ft_strncmp(msg_type, JOIN_MESSAGE, ft_strlen(JOIN_MESSAGE)))
-		return (serialize_join(data));
-	if (!ft_strncmp(msg_type, CHANNEL_MESSAGE, ft_strlen(CHANNEL_MESSAGE)))
-		return (serialize_channel_msg(data));
-	return ("Unknown");
+	int i;
+
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] >= 'A' && string[i] <= 'Z')
+			string[i] += 32;
+		i++;
+	}
+	return (string);
 }
