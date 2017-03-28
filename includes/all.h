@@ -104,7 +104,7 @@ void					talk_channel_server(char **data, \
 void					notif_channel(t_channel *channel, t_client *client);
 void					who_is_online(t_client *client);
 void					leave_server(t_client *client);
-
+char					*serialize_leaved(void);
 
 /*
 ** CLIENT
@@ -129,6 +129,7 @@ void					channel_message(char *author, char *msg, t_client *client);
 void					who(t_client *client);
 void					who_from_server(char **data, t_client *client);
 void					leave_channel(t_client *client);
+void					leaved(t_client *client);
 
 /*
 ** BOTH SIDE
@@ -143,7 +144,7 @@ char					hexastring_to_int(char *s);
 char					*serialize_join(char *data);
 char					*serialize_channel_msg(char *data);
 char					*serialize_who(void);
-void					*serialize_leave(char *data);
+char					*serialize_leave(char *data);
 
 /*
 ** COMMANDS

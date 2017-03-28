@@ -12,7 +12,7 @@
 
 #include "all.h"
 
-char			*serialize_channel_msg(char *data)
+char		*serialize_channel_msg(char *data)
 {
 	char	*to_send;
 
@@ -74,7 +74,8 @@ void		notif_channel(t_channel *channel, t_client *client)
 	ft_strdel(&to_send);
 }
 
-void		talk_channel_server(char **data, t_client *client, t_channel *channel)
+void		talk_channel_server(char **data, t_client *client, \
+	t_channel *channel)
 {
 	char	*to_send;
 
@@ -89,8 +90,8 @@ void		talk_channel_server(char **data, t_client *client, t_channel *channel)
 			ft_strcat(to_send, client->nickname);
 			ft_strcat(to_send, ESCAPE_CHAR);
 			ft_strcat(to_send, data[2]);
-			printf("Chat message: [%s] from user [%s] on channel [%s] sent !\n", \
-			 data[2], client->nickname, channel->name);
+			printf("Chat message: [%s] from [%s] on [%s] sent !\n", \
+				data[2], client->nickname, channel->name);
 			send_to_channel(channel, to_send);
 			ft_strdel(&to_send);
 		}

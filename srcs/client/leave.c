@@ -12,7 +12,7 @@
 
 #include "all.h"
 
-void		*serialize_leave(char *data)
+char		*serialize_leave(char *data)
 {
 	char	*to_send;
 
@@ -28,7 +28,18 @@ void		leave_channel(t_client *client)
 
 	data = NULL;
 	if (client != NULL && client->nickname != NULL && client->channel != NULL)
-		client->send(client, client->serialize(LEAVE_MESSAGE, "\0"));
+		client->send(client, client->serialize(LEAVE_MESSAGE, NULL));
 	else
 		printf("/leave: You need to be in a channel to use leave\n");
+}
+
+void		leaved(t_client *client)
+{
+	if (client != NULL && client->channel != NULL)
+	{
+		printf("You successfully leaved the channel %s\n", \
+			client->channel->name);
+		client->channel = NULL;
+		print_prompt(client);
+	}
 }

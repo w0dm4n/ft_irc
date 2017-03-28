@@ -26,9 +26,21 @@ int		should_disconnect_client(char *buffer, t_client *client)
 	return (FALSE);
 }
 
+void	get_guest_nick(t_client *client)
+{
+	char	*guest_name;
+
+	if (!(guest_name = ft_strnew(16)))
+		return ;
+	ft_strcat(guest_name, "Guest-");
+	ft_strcat(guest_name, ft_itoa(client->fd));
+	nickname_server(guest_name, client);
+}
+
 void	welcome(t_client *client)
 {
 	printf("Client %s:%d successfully authentified to the server !\n",
 			get_client_addr(client->in), get_client_port(client->in));
+	get_guest_nick(client);
 	client->first = FALSE;
 }

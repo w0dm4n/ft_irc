@@ -53,7 +53,7 @@ int		handle(char *entry, t_client *client)
 		else if (!ft_strncmp(split[0], HELP_COMMAND, \
 			ft_strlen(HELP_COMMAND)))
 			return (help());
-		else 
+		else
 			return (handle_suite(entry, client, split));
 	}
 	return (TRUE);

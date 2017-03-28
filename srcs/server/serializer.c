@@ -34,7 +34,7 @@ char	*serializer(char *msg_type, char *data)
 		return (serialize_join(data));
 	if (!ft_strncmp(msg_type, CHANNEL_MESSAGE, ft_strlen(CHANNEL_MESSAGE)))
 		return (serialize_channel_msg(data));
-	if (!ft_strncmp(msg_type, LEAVE_MESSAGE, ft_strlen(LEAVE_MESSAGE)))
-		return (NULL);
+	if (!ft_strncmp(msg_type, LEAVED_MESSAGE, ft_strlen(LEAVED_MESSAGE)))
+		return (serialize_leaved());
 	return ("Unknown");
 }

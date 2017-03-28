@@ -46,7 +46,7 @@ t_channel		*new_channel(char *channel)
 
 	channels = get_channels();
 	if (!(new = (t_channel*)malloc(sizeof(struct s_channel))))
-			return (NULL);
+		return (NULL);
 	new->prev = NULL;
 	new->next = NULL;
 	new->name = channel;

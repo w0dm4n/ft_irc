@@ -12,6 +12,16 @@
 
 #include "all.h"
 
+char		*serialize_leaved(void)
+{
+	char	*to_send;
+
+	if (!(to_send = ft_strnew(CLIENT_READ)))
+		return (NULL);
+	ft_strcat(to_send, LEAVED_MESSAGE);
+	return (to_send);
+}
+
 void		leave_server(t_client *client)
 {
 	if (client != NULL && client->nickname != NULL \
@@ -20,6 +30,6 @@ void		leave_server(t_client *client)
 		printf("User [%s] is leaving the channel [%s]\n", client->nickname, \
 			client->channel->name);
 		client->channel = NULL;
-		//client->send(client, client->seri)
+		client->send(client, client->serialize(LEAVED_MESSAGE, NULL));
 	}
 }

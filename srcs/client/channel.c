@@ -17,10 +17,10 @@ t_channel		*get_channel(char *name)
 	t_channel	*channel;
 
 	if (!(channel = (t_channel*)malloc(sizeof(struct s_channel))))
-			return (NULL);
-		channel->prev = NULL;
-		channel->next = NULL;
-		channel->name = name;
+		return (NULL);
+	channel->prev = NULL;
+	channel->next = NULL;
+	channel->name = name;
 	return (channel);
 }
 
