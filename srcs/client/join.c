@@ -33,6 +33,16 @@ int			in_channel(t_client *client, char *channel)
 	return (FALSE);
 }
 
+int			can_join(char *channel)
+{
+	if (ft_strlen(channel) < 1 || ft_strlen(channel) > 20)
+	{
+		printf("/join: Channel name must have between 1 and 20 characters\n");
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
 void		join(t_client *client, char *channel)
 {
 	if (client != NULL)
@@ -41,7 +51,7 @@ void		join(t_client *client, char *channel)
 		{
 			if (channel != NULL)
 			{
-				if (!in_channel(client, channel))
+				if (!in_channel(client, channel) && can_join(channel))
 					client->send(client, client->serialize(JOIN_MESSAGE, \
 						replace_newline(channel)));
 			}

@@ -102,6 +102,9 @@ void					join_channel(char *name, t_client *client);
 void					talk_channel_server(char **data, \
 	t_client *client, t_channel *channel);
 void					notif_channel(t_channel *channel, t_client *client);
+void					who_is_online(t_client *client);
+void					leave_server(t_client *client);
+
 
 /*
 ** CLIENT
@@ -123,6 +126,9 @@ void					join(t_client *client, char *channel);
 void					set_channel(char *channel, t_client *client);
 int						talk_channel(char *msg, t_client *client, t_channel *channel);
 void					channel_message(char *author, char *msg, t_client *client);
+void					who(t_client *client);
+void					who_from_server(char **data, t_client *client);
+void					leave_channel(t_client *client);
 
 /*
 ** BOTH SIDE
@@ -136,6 +142,8 @@ char					*int_to_hexastring(char c);
 char					hexastring_to_int(char *s);
 char					*serialize_join(char *data);
 char					*serialize_channel_msg(char *data);
+char					*serialize_who(void);
+void					*serialize_leave(char *data);
 
 /*
 ** COMMANDS
@@ -147,6 +155,8 @@ char					*serialize_channel_msg(char *data);
 # define EXIT_COMMAND "/exit"
 # define JOIN_COMMAND "/join"
 # define NICK_COMMAND "/nick"
+# define WHO_COMMAND "/who"
+# define LEAVE_COMMAND "/leave"
 
 # define CLEAR_SCREEN "\033[2J"
 # define RESET_CURSOR "\033[<1>C"
@@ -166,12 +176,16 @@ char					*serialize_channel_msg(char *data);
 ** MESSAGE
 */
 # define ESCAPE_CHAR "|"
+# define ESCAPE_DATA ","
 # define WELCOME_MESSAGE "WELCOME_MESSAGE\0"
 # define WELCOME_BACK "WELCOME_BACK\0"
 # define NICK_MESSAGE "NICKNAME\0"
 # define INFO_MESSAGE "INFORMATIONS\0"
 # define JOIN_MESSAGE "JOIN_CHANNEL\0"
 # define CHANNEL_MESSAGE "CHANNEL_MESSAGE\0"
+# define WHO_MESSAGE "WHO_MESSAGE\0"
+# define LEAVE_MESSAGE "LEAVE_MESSAGE\0"
+# define LEAVED_MESSAGE "LEAVED_MESSAGE\0"
 t_client	*g_clients;
 
 #endif

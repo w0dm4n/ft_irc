@@ -20,5 +20,9 @@ char	*serializer(char *msg_type, char *data)
 		return (serialize_join(data));
 	if (!ft_strncmp(msg_type, CHANNEL_MESSAGE, ft_strlen(CHANNEL_MESSAGE)))
 		return (serialize_channel_msg(data));
+	if (!ft_strncmp(msg_type, WHO_MESSAGE, ft_strlen(WHO_MESSAGE)))
+		return (serialize_who());
+	if (!ft_strncmp(msg_type, LEAVE_MESSAGE, ft_strlen(LEAVE_MESSAGE)))
+		return (serialize_leave(data));
 	return ("Unknown");
 }

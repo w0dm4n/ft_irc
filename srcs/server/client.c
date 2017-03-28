@@ -76,6 +76,7 @@ void				add_client(t_client *client)
 
 void				disconnect_client(t_client *client)
 {
+	client->channel = NULL;
 	remove_client(&g_clients, client);
 	close(client->fd);
 	printf("%sOne client disconnected (%s:%d)%s\n", KRED,\

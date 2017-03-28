@@ -45,6 +45,8 @@ SRCBASE_SERVEUR	=	\
 					join.c     \
 					channel.c  \
 					talk_channel.c \
+					who.c      \
+					leave.c
 
 SRCBASE_CLIENT		=	\
 					client.c \
@@ -61,7 +63,9 @@ SRCBASE_CLIENT		=	\
 					serializer.c \
 					from_server.c \
 					channel.c \
-					join.c
+					join.c    \
+					who.c \
+					leave.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

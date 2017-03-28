@@ -20,6 +20,10 @@ int		handle_suite(char *entry, t_client *client, char **split)
 		nickname(client, (split[1]) ? split[1] : NULL);
 	else if (!ft_strncmp(split[0], JOIN_COMMAND, ft_strlen(JOIN_COMMAND)))
 		join(client, (split[1]) ? split[1] : NULL);
+	else if (!ft_strncmp(split[0], WHO_COMMAND, ft_strlen(WHO_COMMAND)))
+		who(client);
+	else if (!ft_strncmp(split[0], LEAVE_COMMAND, ft_strlen(LEAVE_COMMAND)))
+		leave_channel(client);
 	else
 	{
 		if (client != NULL && client->channel != NULL)

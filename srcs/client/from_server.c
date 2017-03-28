@@ -36,5 +36,7 @@ void		from_server(char *msg, t_client *client)
 			set_channel(split[1], client);
 		else if (!ft_strcmp(split[0], CHANNEL_MESSAGE))
 			channel_message(split[1], split[2], client);
+		else if (!ft_strcmp(split[0], WHO_MESSAGE))
+			who_from_server(split, client);
 	}
 }

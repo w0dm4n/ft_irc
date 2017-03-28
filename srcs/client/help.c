@@ -21,6 +21,8 @@ int			help(void)
 	printf("- /help: Print all available commands\n");
 	printf("- /nick: Set a nickname\n");
 	printf("- /join: Join a channel\n");
+	printf("- /who: Informations about connected users\n");
+	printf("- /leave: Leave the current channel\n");
 	printf("- /exit: Close the program\n");
 	return (TRUE);
 }

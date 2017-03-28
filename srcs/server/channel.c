@@ -22,7 +22,7 @@ t_channel		*get_channels(void)
 			return (NULL);
 		channels->prev = NULL;
 		channels->next = NULL;
-		channels->name = "Accueil";
+		channels->name = "accueil";
 	}
 	return (channels);
 }
@@ -31,6 +31,7 @@ void			add_channel(t_channel *channel)
 {
 	t_channel	*channels;
 
+	channel->name = ft_strtolower(channel->name);
 	channels = get_channels();
 	while (channels->next)
 		channels = channels->next;
@@ -58,6 +59,7 @@ t_channel		*get_channel_by_name(char *name)
 	t_channel	*channels;
 
 	channels = get_channels();
+	name = ft_strtolower(name);
 	while (channels)
 	{
 		if (!ft_strcmp(channels->name, name))
