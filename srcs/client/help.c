@@ -23,6 +23,7 @@ int			help(void)
 	printf("- /join: Join a channel\n");
 	printf("- /who: Informations about connected users\n");
 	printf("- /leave: Leave the current channel\n");
+	printf("- /msg: Send a message to one user\n");
 	printf("- /exit: Close the program\n");
 	return (TRUE);
 }

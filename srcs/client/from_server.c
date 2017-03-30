@@ -40,5 +40,7 @@ void		from_server(char *msg, t_client *client)
 			who_from_server(split, client);
 		else if (!ft_strcmp(split[0], LEAVED_MESSAGE))
 			leaved(client);
+		else if (!ft_strcmp(split[0], MP_MESSAGE))
+			received_pm(split, client);
 	}
 }

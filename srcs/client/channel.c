@@ -43,7 +43,8 @@ void			channel_message(char *author, char *msg, t_client *client)
 	{
 		if (author != NULL && msg != NULL)
 		{
-			if (ft_strcmp(client->nickname, author))
+			if (ft_strcmp(ft_strtolower(client->nickname), \
+				ft_strtolower(author)))
 				ft_putstr("\n");
 			printf("[%s%s%s] [%s%s%s]: %s\n", \
 				KYEL, author, KNRM, KRED, \

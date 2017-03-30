@@ -46,10 +46,13 @@
 /*
 ** INFOS MESSAGES
 */
-# define WRONG_NICK_FORMAT \
-"Your nickname need to have between 2 and 9 characters\0"
-# define NICK_NOT_AVAILABLE \
-"This nickname is already taken, please chose another oner !\0"
+# define WRONG_NICK_FORMAT1 "Your nickname need to "
+# define WRONG_NICK_FORMAT2 "have between 2 and 9 characters\0"
+# define WRONG_NICK_FORMAT WRONG_NICK_FORMAT1 WRONG_NICK_FORMAT2
+
+# define NICK_NOT_AVAILABLE1 "This nickname is already taken, "
+# define NICK_NOT_AVAILABLE2 "please chose another oner !\0"
+# define NICK_NOT_AVAILABLE NICK_NOT_AVAILABLE1 NICK_NOT_AVAILABLE2
 
 typedef struct			s_channel
 {
@@ -89,8 +92,6 @@ void					remove_client(t_client **ptr, t_client *map);
 */
 void					print_error(char *msg, int exit_code);
 void					accept_client(t_server *server);
-char					*get_client_addr(struct sockaddr_in client);
-int						get_client_port(struct sockaddr_in client);
 void					read_clients(t_server *server);
 int						handle(char *buffer, t_client *client);
 int						should_disconnect_client(char *buffer, \
@@ -98,13 +99,17 @@ int						should_disconnect_client(char *buffer, \
 void					welcome(t_client *client);
 void					nickname_server(char *nickname, t_client *client);
 void					join_server(char *channel, t_client *client);
-void					join_channel(char *name, t_client *client);
+void					join_channel(char *name, t_client *client, \
+	t_channel *channel);
 void					talk_channel_server(char **data, \
 	t_client *client, t_channel *channel);
 void					notif_channel(t_channel *channel, t_client *client);
 void					who_is_online(t_client *client);
 void					leave_server(t_client *client);
 char					*serialize_leaved(void);
+void					pm_server(t_client *client, char *data);
+t_client				*get_client_by_nickname(char *nickname);
+char					*serialize_mp(char *data);
 
 /*
 ** CLIENT
@@ -124,12 +129,17 @@ void					from_server(char *msg, t_client *client);
 void					set_nickname(char **data, t_client *client);
 void					join(t_client *client, char *channel);
 void					set_channel(char *channel, t_client *client);
-int						talk_channel(char *msg, t_client *client, t_channel *channel);
-void					channel_message(char *author, char *msg, t_client *client);
+int						talk_channel(char *msg, t_client *client, \
+	t_channel *channel);
+void					channel_message(char *author, char *msg, \
+	t_client *client);
 void					who(t_client *client);
 void					who_from_server(char **data, t_client *client);
 void					leave_channel(t_client *client);
 void					leaved(t_client *client);
+int						private_message(t_client *client, char **data, int i);
+void					received_pm(char **data, t_client *client);
+void					send_packet(t_client *client, char **split);
 
 /*
 ** BOTH SIDE
@@ -138,14 +148,15 @@ char					*serializer(char *msg_type, char *data);
 char					*serialize_nick(char *data);
 char					*serialize_join(char *data);
 char					*encrypt_message(char *msg);
-char 					*decrypt_message(char *crypted);
+char					*decrypt_message(char *crypted);
 char					*int_to_hexastring(char c);
 char					hexastring_to_int(char *s);
 char					*serialize_join(char *data);
 char					*serialize_channel_msg(char *data);
 char					*serialize_who(void);
 char					*serialize_leave(char *data);
-
+char					*get_client_addr(struct sockaddr_in client);
+int						get_client_port(struct sockaddr_in client);
 /*
 ** COMMANDS
 */
@@ -158,9 +169,12 @@ char					*serialize_leave(char *data);
 # define NICK_COMMAND "/nick"
 # define WHO_COMMAND "/who"
 # define LEAVE_COMMAND "/leave"
+# define SEND_COMMAND "/send"
+# define MSG_COMMAND "/msg"
 
 # define CLEAR_SCREEN "\033[2J"
 # define RESET_CURSOR "\033[<1>C"
+
 /*
 ** ERRNO DEFINITIONS
 */
@@ -187,6 +201,8 @@ char					*serialize_leave(char *data);
 # define WHO_MESSAGE "WHO_MESSAGE\0"
 # define LEAVE_MESSAGE "LEAVE_MESSAGE\0"
 # define LEAVED_MESSAGE "LEAVED_MESSAGE\0"
+# define MP_MESSAGE "MP_MESSAGE\0"
+
 t_client	*g_clients;
 
 #endif

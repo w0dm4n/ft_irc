@@ -24,6 +24,10 @@ int		handle_suite(char *entry, t_client *client, char **split)
 		who(client);
 	else if (!ft_strncmp(split[0], LEAVE_COMMAND, ft_strlen(LEAVE_COMMAND)))
 		leave_channel(client);
+	else if (!ft_strncmp(split[0], MSG_COMMAND, ft_strlen(MSG_COMMAND)))
+		return (private_message(client, split, 1));
+	else if (!ft_strncmp(split[0], SEND_COMMAND, ft_strlen(SEND_COMMAND)))
+		send_packet(client, split);
 	else
 	{
 		if (client != NULL && client->channel != NULL)

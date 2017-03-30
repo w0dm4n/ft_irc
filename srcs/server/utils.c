@@ -12,7 +12,7 @@
 
 #include "all.h"
 
-char	*int_to_hexastring(char c)
+char			*int_to_hexastring(char c)
 {
 	char		*res;
 
@@ -22,11 +22,39 @@ char	*int_to_hexastring(char c)
 	return (res);
 }
 
-char	hexastring_to_int(char *s)
+char			hexastring_to_int(char *s)
 {
 	char xor;
 
 	xor = ft_atoi_base(s, 16);
 	ft_strdel(&s);
 	return (xor);
+}
+
+char			*get_client_addr(struct sockaddr_in client)
+{
+	return (inet_ntoa(client.sin_addr));
+}
+
+int				get_client_port(struct sockaddr_in client)
+{
+	return (ntohs(client.sin_port));
+}
+
+t_client		*get_client_by_nickname(char *nickname)
+{
+	t_client	*clients;
+
+	clients = g_clients;
+	while (clients)
+	{
+		if (clients->nickname != NULL)
+		{
+			if (!ft_strcmp(ft_strtolower(clients->nickname), \
+				ft_strtolower(nickname)))
+				return (clients);
+		}
+		clients = clients->next;
+	}
+	return (NULL);
 }

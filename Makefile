@@ -46,7 +46,8 @@ SRCBASE_SERVEUR	=	\
 					channel.c  \
 					talk_channel.c \
 					who.c      \
-					leave.c
+					leave.c    \
+					pm.c
 
 SRCBASE_CLIENT		=	\
 					client.c \
@@ -65,7 +66,9 @@ SRCBASE_CLIENT		=	\
 					channel.c \
 					join.c    \
 					who.c \
-					leave.c
+					leave.c \
+					private_message.c \
+					send.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

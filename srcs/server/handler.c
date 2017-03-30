@@ -24,6 +24,8 @@ int		handle_esc(char **split, t_client *client, char *data)
 		who_is_online(client);
 	else if (!ft_strcmp(split[0], LEAVE_MESSAGE))
 		leave_server(client);
+	else if (!ft_strcmp(split[0], MP_MESSAGE))
+		pm_server(client, split[1]);
 	else
 		printf("%sMessage not handled: %s from %s:%d%s\n", \
 			KYEL, data, get_client_addr(client->in), \

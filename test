@@ -1,0 +1,607 @@
+Process:         client [21099]
+Path:            /Users/frmarinh/Desktop/work/irc/client
+Load Address:    0x1040b1000
+Identifier:      client
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [90333]
+
+Date/Time:       2017-03-30 12:25:00.118 +0200
+Launch Time:     2017-03-30 12:24:24.564 +0200
+OS Version:      Mac OS X 10.11.6 (15G1217)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 8.2.1 (8C1002)
+----
+
+leaks Report Version:  2.0
+Process 21099: 628 nodes malloced for 59 KB
+Process 21099: 446 leaks for 37088 total leaked bytes.
+Leak: 0x7fa7fb4031b0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x20000000 	............... 
+Leak: 0x7fa7fb4031c0  size=208  zone: DefaultMallocZone_0x1040bc000
+	0xfb403290 0x00007fa7 0xfb4032a0 0x00007fa7 	.2@......2@.....
+	0x00000000 0x00000000 0x9b98f8d5 0x00007fff 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb4032a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "8080"
+Leak: 0x7fa7fb4032b0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb4032c0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb4032d0  size=96  zone: DefaultMallocZone_0x1040bc000
+	0xfb403330 0x00007fa7 0xfb403340 0x00007fa7 	03@.....@3@.....
+	0xfb403350 0x00007fa7 0xfb403360 0x00007fa7 	P3@.....`3@.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403330  size=16  zone: DefaultMallocZone_0x1040bc000  length: 3  "127"
+Leak: 0x7fa7fb403340  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "0"
+Leak: 0x7fa7fb403350  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "0"
+Leak: 0x7fa7fb403360  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "1"
+Leak: 0x7fa7fb403370  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403380  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403390  size=208  zone: DefaultMallocZone_0x1040bc000
+	0xfb403460 0x00007fa7 0xfb403470 0x00007fa7 	`4@.....p4@.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb403460  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "127.0.0.1"
+Leak: 0x7fa7fb403470  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "8080"
+Leak: 0x7fa7fb403480  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403570  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403580  size=176  zone: DefaultMallocZone_0x1040bc000
+	0xfb403630 0x00007fa7 0x00000000 0x00000000 	06@.............
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb403630  size=16  zone: DefaultMallocZone_0x1040bc000  length: 13  "trjrtjrtjrtj
+"
+Leak: 0x7fa7fb403640  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403650  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb403660  size=64  zone: DefaultMallocZone_0x1040bc000
+	0xfb4036a0 0x00007fa7 0x00000000 0x00000000 	.6@.............
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb4036a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 7  "tjrrtj
+"
+Leak: 0x7fa7fb4036b0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500000  size=32  zone: DefaultMallocZone_0x1040bc000  length: 30  "17666808080817110A0F0177621966"
+Leak: 0x7fa7fb500020  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500030  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "W"
+Leak: 0x7fa7fb500040  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb500050  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "W"
+Leak: 0x7fa7fb500060  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb500070  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "66"
+Leak: 0x7fa7fb500080  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "WE"
+Leak: 0x7fa7fb500090  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "L"
+Leak: 0x7fa7fb5000a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "68"
+Leak: 0x7fa7fb5000b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 3  "WEL"
+Leak: 0x7fa7fb5000c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "C"
+Leak: 0x7fa7fb5000d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb5000e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "WELC"
+Leak: 0x7fa7fb5000f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "O"
+Leak: 0x7fa7fb500100  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb500110  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "WELCO"
+Leak: 0x7fa7fb500120  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "M"
+Leak: 0x7fa7fb500130  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb500140  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "WELCOM"
+Leak: 0x7fa7fb500150  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb500160  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb500170  size=16  zone: DefaultMallocZone_0x1040bc000  length: 7  "WELCOME"
+Leak: 0x7fa7fb500180  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "_"
+Leak: 0x7fa7fb500190  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "11"
+Leak: 0x7fa7fb5001a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "WELCOME_"
+Leak: 0x7fa7fb5001b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "M"
+Leak: 0x7fa7fb5001c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0a"
+Leak: 0x7fa7fb5001d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "WELCOME_M"
+Leak: 0x7fa7fb5001e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb5001f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0f"
+Leak: 0x7fa7fb500200  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "WELCOME_ME"
+Leak: 0x7fa7fb500210  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "S"
+Leak: 0x7fa7fb500220  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "01"
+Leak: 0x7fa7fb500230  size=16  zone: DefaultMallocZone_0x1040bc000  length: 11  "WELCOME_MES"
+Leak: 0x7fa7fb500240  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "S"
+Leak: 0x7fa7fb500250  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "77"
+Leak: 0x7fa7fb500260  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "WELCOME_MESS"
+Leak: 0x7fa7fb500270  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb500280  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "62"
+Leak: 0x7fa7fb500290  size=16  zone: DefaultMallocZone_0x1040bc000  length: 13  "WELCOME_MESSA"
+Leak: 0x7fa7fb5002a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "G"
+Leak: 0x7fa7fb5002b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "19"
+Leak: 0x7fa7fb5002c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "WELCOME_MESSAG"
+Leak: 0x7fa7fb5002d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb5002e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "66"
+Leak: 0x7fa7fb5002f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 15  "WELCOME_MESSAGE"
+Leak: 0x7fa7fb500300  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500310  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb500320  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb500330  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "66"
+Leak: 0x7fa7fb500340  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "1766"
+Leak: 0x7fa7fb500350  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "68"
+Leak: 0x7fa7fb500360  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "176668"
+Leak: 0x7fa7fb500370  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "8"
+Leak: 0x7fa7fb500380  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb500390  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "17666808"
+Leak: 0x7fa7fb5003a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "8"
+Leak: 0x7fa7fb5003b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb5003c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "1766680808"
+Leak: 0x7fa7fb5003d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "8"
+Leak: 0x7fa7fb5003e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "08"
+Leak: 0x7fa7fb5003f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "176668080808"
+Leak: 0x7fa7fb500400  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb500410  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "17666808080817"
+Leak: 0x7fa7fb500420  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "11"
+Leak: 0x7fa7fb500430  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "1766680808081711"
+Leak: 0x7fa7fb500450  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "5"
+Leak: 0x7fa7fb500460  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "05"
+Leak: 0x7fa7fb500470  size=32  zone: DefaultMallocZone_0x1040bc000  length: 18  "176668080808171105"
+Leak: 0x7fa7fb500490  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "B"
+Leak: 0x7fa7fb5004a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0B"
+Leak: 0x7fa7fb5004b0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 20  "1766680808081711050B"
+Leak: 0x7fa7fb5004d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "11"
+Leak: 0x7fa7fb5004e0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 22  "1766680808081711050B11"
+Leak: 0x7fa7fb500500  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6F"
+Leak: 0x7fa7fb500510  size=32  zone: DefaultMallocZone_0x1040bc000  length: 24  "1766680808081711050B116F"
+Leak: 0x7fa7fb500530  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500550  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500560  size=48  zone: DefaultMallocZone_0x1040bc000
+	0xfb500590 0x00007fa7 0x00000000 0x00000000 	..P.............
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500590  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "couci
+"
+Leak: 0x7fa7fb5005a0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb5005b0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb5005c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "3"
+Leak: 0x7fa7fb5005d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "03"
+Leak: 0x7fa7fb5005e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "03"
+Leak: 0x7fa7fb5005f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6B"
+Leak: 0x7fa7fb500600  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "036B"
+Leak: 0x7fa7fb500610  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "65"
+Leak: 0x7fa7fb500620  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "036B65"
+Leak: 0x7fa7fb500630  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "5"
+Leak: 0x7fa7fb500640  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "05"
+Leak: 0x7fa7fb500650  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "036B6505"
+Leak: 0x7fa7fb500660  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "9"
+Leak: 0x7fa7fb500670  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "09"
+Leak: 0x7fa7fb500680  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "036B650509"
+Leak: 0x7fa7fb500690  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "0"
+Leak: 0x7fa7fb5006a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "00"
+Leak: 0x7fa7fb5006b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "036B65050900"
+Leak: 0x7fa7fb5006c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "1E"
+Leak: 0x7fa7fb5006d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "036B650509001E"
+Leak: 0x7fa7fb5006e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "11"
+Leak: 0x7fa7fb5006f0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "036B650509001E11"
+Leak: 0x7fa7fb500710  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb500720  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0A"
+Leak: 0x7fa7fb500730  size=32  zone: DefaultMallocZone_0x1040bc000  length: 18  "036B650509001E110A"
+Leak: 0x7fa7fb500750  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "F"
+Leak: 0x7fa7fb500760  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0F"
+Leak: 0x7fa7fb500770  size=32  zone: DefaultMallocZone_0x1040bc000  length: 20  "036B650509001E110A0F"
+Leak: 0x7fa7fb500790  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "1"
+Leak: 0x7fa7fb5007a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "01"
+Leak: 0x7fa7fb5007b0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 22  "036B650509001E110A0F01"
+Leak: 0x7fa7fb5007d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "77"
+Leak: 0x7fa7fb5007e0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 24  "036B650509001E110A0F0177"
+Leak: 0x7fa7fb500800  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "62"
+Leak: 0x7fa7fb500810  size=32  zone: DefaultMallocZone_0x1040bc000  length: 26  "036B650509001E110A0F017762"
+Leak: 0x7fa7fb500830  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "19"
+Leak: 0x7fa7fb500840  size=32  zone: DefaultMallocZone_0x1040bc000  length: 28  "036B650509001E110A0F01776219"
+Leak: 0x7fa7fb500860  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "66"
+Leak: 0x7fa7fb500870  size=32  zone: DefaultMallocZone_0x1040bc000  length: 30  "036B650509001E110A0F0177621966"
+Leak: 0x7fa7fb500890  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "58"
+Leak: 0x7fa7fb5008a0  size=48  zone: DefaultMallocZone_0x1040bc000  length: 32  "036B650509001E110A0F017762196658"
+Leak: 0x7fa7fb5008d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "57"
+Leak: 0x7fa7fb5008e0  size=48  zone: DefaultMallocZone_0x1040bc000  length: 34  "036B650509001E110A0F01776219665857"
+Leak: 0x7fa7fb500910  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "25"
+Leak: 0x7fa7fb500920  size=48  zone: DefaultMallocZone_0x1040bc000  length: 36  "036B650509001E110A0F0177621966585725"
+Leak: 0x7fa7fb500950  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "5B"
+Leak: 0x7fa7fb500960  size=48  zone: DefaultMallocZone_0x1040bc000  length: 38  "036B650509001E110A0F01776219665857255B"
+Leak: 0x7fa7fb500990  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "37"
+Leak: 0x7fa7fb5009a0  size=48  zone: DefaultMallocZone_0x1040bc000  length: 40  "036B650509001E110A0F01776219665857255B37"
+Leak: 0x7fa7fb5009d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "3B"
+Leak: 0x7fa7fb5009e0  size=48  zone: DefaultMallocZone_0x1040bc000  length: 42  "036B650509001E110A0F01776219665857255B373B"
+Leak: 0x7fa7fb500a10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "23"
+Leak: 0x7fa7fb500a20  size=48  zone: DefaultMallocZone_0x1040bc000  length: 44  "036B650509001E110A0F01776219665857255B373B23"
+Leak: 0x7fa7fb500a50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "4B"
+Leak: 0x7fa7fb500a60  size=48  zone: DefaultMallocZone_0x1040bc000  length: 46  "036B650509001E110A0F01776219665857255B373B234B"
+Leak: 0x7fa7fb500a90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "5C"
+Leak: 0x7fa7fb500aa0  size=64  zone: DefaultMallocZone_0x1040bc000  length: 48  "036B650509001E110A0F01776219665857255B373B234B5C"
+Leak: 0x7fa7fb500ae0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "48"
+Leak: 0x7fa7fb500af0  size=64  zone: DefaultMallocZone_0x1040bc000  length: 50  "036B650509001E110A0F01776219665857255B373B234B5C48"
+Leak: 0x7fa7fb500b30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "54"
+Leak: 0x7fa7fb500b40  size=64  zone: DefaultMallocZone_0x1040bc000  length: 52  "036B650509001E110A0F01776219665857255B373B234B5C4854"
+Leak: 0x7fa7fb500b80  size=64  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500bc0  size=64  zone: DefaultMallocZone_0x1040bc000  length: 58  "036B650509001E110A0F01776219665864354D30336D1055485235404D"
+Leak: 0x7fa7fb500c00  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb500c10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "C"
+Leak: 0x7fa7fb500c20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "03"
+Leak: 0x7fa7fb500c30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "C"
+Leak: 0x7fa7fb500c40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "H"
+Leak: 0x7fa7fb500c50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6b"
+Leak: 0x7fa7fb500c60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "CH"
+Leak: 0x7fa7fb500c70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb500c80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "65"
+Leak: 0x7fa7fb500c90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 3  "CHA"
+Leak: 0x7fa7fb500ca0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb500cb0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "05"
+Leak: 0x7fa7fb500cc0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "CHAN"
+Leak: 0x7fa7fb500cd0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb500ce0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "09"
+Leak: 0x7fa7fb500cf0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "CHANN"
+Leak: 0x7fa7fb500d00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb500d10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "00"
+Leak: 0x7fa7fb500d20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "CHANNE"
+Leak: 0x7fa7fb500d30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "L"
+Leak: 0x7fa7fb500d40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "1e"
+Leak: 0x7fa7fb500d50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 7  "CHANNEL"
+Leak: 0x7fa7fb500d60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "_"
+Leak: 0x7fa7fb500d70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "11"
+Leak: 0x7fa7fb500d80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "CHANNEL_"
+Leak: 0x7fa7fb500d90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "M"
+Leak: 0x7fa7fb500da0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0a"
+Leak: 0x7fa7fb500db0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "CHANNEL_M"
+Leak: 0x7fa7fb500dc0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb500dd0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0f"
+Leak: 0x7fa7fb500de0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "CHANNEL_ME"
+Leak: 0x7fa7fb500df0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "S"
+Leak: 0x7fa7fb500e00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "01"
+Leak: 0x7fa7fb500e10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 11  "CHANNEL_MES"
+Leak: 0x7fa7fb500e20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "S"
+Leak: 0x7fa7fb500e30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "77"
+Leak: 0x7fa7fb500e40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "CHANNEL_MESS"
+Leak: 0x7fa7fb500e50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb500e60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "62"
+Leak: 0x7fa7fb500e70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 13  "CHANNEL_MESSA"
+Leak: 0x7fa7fb500e80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "G"
+Leak: 0x7fa7fb500e90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "19"
+Leak: 0x7fa7fb500ea0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "CHANNEL_MESSAG"
+Leak: 0x7fa7fb500eb0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb500ec0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "66"
+Leak: 0x7fa7fb500ed0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 15  "CHANNEL_MESSAGE"
+Leak: 0x7fa7fb500ee0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "|"
+Leak: 0x7fa7fb500ef0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "58"
+Leak: 0x7fa7fb500f00  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "CHANNEL_MESSAGE|"
+Leak: 0x7fa7fb500f20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "G"
+Leak: 0x7fa7fb500f30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "64"
+Leak: 0x7fa7fb500f40  size=32  zone: DefaultMallocZone_0x1040bc000  length: 17  "CHANNEL_MESSAGE|G"
+Leak: 0x7fa7fb500f60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "u"
+Leak: 0x7fa7fb500f70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "35"
+Leak: 0x7fa7fb500f80  size=32  zone: DefaultMallocZone_0x1040bc000  length: 18  "CHANNEL_MESSAGE|Gu"
+Leak: 0x7fa7fb500fa0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "e"
+Leak: 0x7fa7fb500fb0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "4d"
+Leak: 0x7fa7fb500fc0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 19  "CHANNEL_MESSAGE|Gue"
+Leak: 0x7fa7fb500fe0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "s"
+Leak: 0x7fa7fb500ff0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "30"
+Leak: 0x7fa7fb501000  size=32  zone: DefaultMallocZone_0x1040bc000  length: 20  "CHANNEL_MESSAGE|Gues"
+Leak: 0x7fa7fb501020  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "t"
+Leak: 0x7fa7fb501030  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "33"
+Leak: 0x7fa7fb501040  size=32  zone: DefaultMallocZone_0x1040bc000  length: 21  "CHANNEL_MESSAGE|Guest"
+Leak: 0x7fa7fb501060  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "-"
+Leak: 0x7fa7fb501070  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6d"
+Leak: 0x7fa7fb501080  size=32  zone: DefaultMallocZone_0x1040bc000  length: 22  "CHANNEL_MESSAGE|Guest-"
+Leak: 0x7fa7fb5010a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "4"
+Leak: 0x7fa7fb5010b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "10"
+Leak: 0x7fa7fb5010c0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 23  "CHANNEL_MESSAGE|Guest-4"
+Leak: 0x7fa7fb5010e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "|"
+Leak: 0x7fa7fb5010f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "55"
+Leak: 0x7fa7fb501100  size=32  zone: DefaultMallocZone_0x1040bc000  length: 24  "CHANNEL_MESSAGE|Guest-4|"
+Leak: 0x7fa7fb501120  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "c"
+Leak: 0x7fa7fb501130  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "48"
+Leak: 0x7fa7fb501140  size=32  zone: DefaultMallocZone_0x1040bc000  length: 25  "CHANNEL_MESSAGE|Guest-4|c"
+Leak: 0x7fa7fb501160  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "o"
+Leak: 0x7fa7fb501170  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "52"
+Leak: 0x7fa7fb501180  size=32  zone: DefaultMallocZone_0x1040bc000  length: 26  "CHANNEL_MESSAGE|Guest-4|co"
+Leak: 0x7fa7fb5011a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "u"
+Leak: 0x7fa7fb5011b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "35"
+Leak: 0x7fa7fb5011c0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 27  "CHANNEL_MESSAGE|Guest-4|cou"
+Leak: 0x7fa7fb5011e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "c"
+Leak: 0x7fa7fb5011f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "40"
+Leak: 0x7fa7fb501200  size=32  zone: DefaultMallocZone_0x1040bc000  length: 28  "CHANNEL_MESSAGE|Guest-4|couc"
+Leak: 0x7fa7fb501220  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "i"
+Leak: 0x7fa7fb501230  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "4d"
+Leak: 0x7fa7fb501240  size=32  zone: DefaultMallocZone_0x1040bc000  length: 29  "CHANNEL_MESSAGE|Guest-4|couci"
+Leak: 0x7fa7fb501260  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb501280  size=848  zone: DefaultMallocZone_0x1040bc000
+	0xfb5015d0 0x00007fa7 0xfb5015f0 0x00007fa7 	..P.......P.....
+	0xfb501610 0x00007fa7 0x00000000 0x00000000 	..P.............
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb5015d0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 15  "CHANNEL_MESSAGE"
+Leak: 0x7fa7fb5015f0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 7  "guest-4"
+Leak: 0x7fa7fb501610  size=32  zone: DefaultMallocZone_0x1040bc000  length: 5  "couci"
+Leak: 0x7fa7fb501630  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600000  size=48  zone: DefaultMallocZone_0x1040bc000  length: 32  "0E6A670009041F0B3B0D2741502A0E10"
+Leak: 0x7fa7fb600030  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600040  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600050  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0e"
+Leak: 0x7fa7fb600060  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600070  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "I"
+Leak: 0x7fa7fb600080  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6a"
+Leak: 0x7fa7fb600090  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "NI"
+Leak: 0x7fa7fb6000a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "C"
+Leak: 0x7fa7fb6000b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "67"
+Leak: 0x7fa7fb6000c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 3  "NIC"
+Leak: 0x7fa7fb6000d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "K"
+Leak: 0x7fa7fb6000e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "00"
+Leak: 0x7fa7fb6000f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "NICK"
+Leak: 0x7fa7fb600100  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600110  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "09"
+Leak: 0x7fa7fb600120  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "NICKN"
+Leak: 0x7fa7fb600130  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb600140  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "04"
+Leak: 0x7fa7fb600150  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "NICKNA"
+Leak: 0x7fa7fb600160  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "M"
+Leak: 0x7fa7fb600170  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "1f"
+Leak: 0x7fa7fb600180  size=16  zone: DefaultMallocZone_0x1040bc000  length: 7  "NICKNAM"
+Leak: 0x7fa7fb600190  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb6001a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0b"
+Leak: 0x7fa7fb6001b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "NICKNAME"
+Leak: 0x7fa7fb6001c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "|"
+Leak: 0x7fa7fb6001d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "3b"
+Leak: 0x7fa7fb6001e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "NICKNAME|"
+Leak: 0x7fa7fb6001f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "G"
+Leak: 0x7fa7fb600200  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0d"
+Leak: 0x7fa7fb600210  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "NICKNAME|G"
+Leak: 0x7fa7fb600220  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "u"
+Leak: 0x7fa7fb600230  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "27"
+Leak: 0x7fa7fb600240  size=16  zone: DefaultMallocZone_0x1040bc000  length: 11  "NICKNAME|Gu"
+Leak: 0x7fa7fb600250  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "e"
+Leak: 0x7fa7fb600260  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "41"
+Leak: 0x7fa7fb600270  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "NICKNAME|Gue"
+Leak: 0x7fa7fb600280  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "s"
+Leak: 0x7fa7fb600290  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "50"
+Leak: 0x7fa7fb6002a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 13  "NICKNAME|Gues"
+Leak: 0x7fa7fb6002b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "t"
+Leak: 0x7fa7fb6002c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "2a"
+Leak: 0x7fa7fb6002d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "NICKNAME|Guest"
+Leak: 0x7fa7fb6002e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "-"
+Leak: 0x7fa7fb6002f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0e"
+Leak: 0x7fa7fb600300  size=16  zone: DefaultMallocZone_0x1040bc000  length: 15  "NICKNAME|Guest-"
+Leak: 0x7fa7fb600310  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "4"
+Leak: 0x7fa7fb600320  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "10"
+Leak: 0x7fa7fb600330  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "NICKNAME|Guest-4"
+Leak: 0x7fa7fb600350  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600370  size=256  zone: DefaultMallocZone_0x1040bc000
+	0xfb600470 0x00007fa7 0xfb600490 0x00007fa7 	p.`.......`.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb600470  size=32  zone: DefaultMallocZone_0x1040bc000  length: 8  "NICKNAME"
+Leak: 0x7fa7fb6004b0  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6004d0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6004e0  size=176  zone: DefaultMallocZone_0x1040bc000
+	0xfb600590 0x00007fa7 0xfb6005a0 0x00007fa7 	..`.......`.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb600590  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "/send"
+Leak: 0x7fa7fb6005a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "fgjrtj"
+Leak: 0x7fa7fb6005b0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6005c0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6005d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "26"
+Leak: 0x7fa7fb6005e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "26"
+Leak: 0x7fa7fb6005f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "44"
+Leak: 0x7fa7fb600600  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "2644"
+Leak: 0x7fa7fb600610  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "4E"
+Leak: 0x7fa7fb600620  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "26444E"
+Leak: 0x7fa7fb600630  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "39"
+Leak: 0x7fa7fb600640  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "26444E39"
+Leak: 0x7fa7fb600650  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "33"
+Leak: 0x7fa7fb600660  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "26444E3933"
+Leak: 0x7fa7fb600670  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "2F"
+Leak: 0x7fa7fb600680  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "26444E39332F"
+Leak: 0x7fa7fb600690  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6006a0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6006b0  size=96  zone: DefaultMallocZone_0x1040bc000
+	0xfb600710 0x00007fa7 0x00000000 0x00000000 	..`.............
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600710  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "trjtjrtj
+"
+Leak: 0x7fa7fb600720  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600730  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600740  size=128  zone: DefaultMallocZone_0x1040bc000
+	0xfb6007c0 0x00007fa7 0xfb6007d0 0x00007fa7 	..`.......`.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6007c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "/join"
+Leak: 0x7fa7fb6007d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "test"
+Leak: 0x7fa7fb6007e0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb6007f0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600800  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb600810  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0A"
+Leak: 0x7fa7fb600820  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0A"
+Leak: 0x7fa7fb600830  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6C"
+Leak: 0x7fa7fb600840  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "0A6C"
+Leak: 0x7fa7fb600850  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6D"
+Leak: 0x7fa7fb600860  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "0A6C6D"
+Leak: 0x7fa7fb600870  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "5"
+Leak: 0x7fa7fb600880  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "05"
+Leak: 0x7fa7fb600890  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "0A6C6D05"
+Leak: 0x7fa7fb6008a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "18"
+Leak: 0x7fa7fb6008b0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "0A6C6D0518"
+Leak: 0x7fa7fb6008c0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "6"
+Leak: 0x7fa7fb6008d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "06"
+Leak: 0x7fa7fb6008e0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "0A6C6D051806"
+Leak: 0x7fa7fb6008f0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "1A"
+Leak: 0x7fa7fb600900  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "0A6C6D0518061A"
+Leak: 0x7fa7fb600910  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "F"
+Leak: 0x7fa7fb600920  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0F"
+Leak: 0x7fa7fb600930  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "0A6C6D0518061A0F"
+Leak: 0x7fa7fb600950  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "9"
+Leak: 0x7fa7fb600960  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "09"
+Leak: 0x7fa7fb600970  size=32  zone: DefaultMallocZone_0x1040bc000  length: 18  "0A6C6D0518061A0F09"
+Leak: 0x7fa7fb600990  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "4"
+Leak: 0x7fa7fb6009a0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "04"
+Leak: 0x7fa7fb6009b0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 20  "0A6C6D0518061A0F0904"
+Leak: 0x7fa7fb6009d0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb6009e0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 22  "0A6C6D0518061A0F090417"
+Leak: 0x7fa7fb600a00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "68"
+Leak: 0x7fa7fb600a10  size=32  zone: DefaultMallocZone_0x1040bc000  length: 24  "0A6C6D0518061A0F09041768"
+Leak: 0x7fa7fb600a30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "5F"
+Leak: 0x7fa7fb600a40  size=32  zone: DefaultMallocZone_0x1040bc000  length: 26  "0A6C6D0518061A0F090417685F"
+Leak: 0x7fa7fb600a60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "2A"
+Leak: 0x7fa7fb600a70  size=32  zone: DefaultMallocZone_0x1040bc000  length: 28  "0A6C6D0518061A0F090417685F2A"
+Leak: 0x7fa7fb600a90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "46"
+Leak: 0x7fa7fb600aa0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 30  "0A6C6D0518061A0F090417685F2A46"
+Leak: 0x7fa7fb600ac0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "57"
+Leak: 0x7fa7fb600ad0  size=48  zone: DefaultMallocZone_0x1040bc000  length: 32  "0A6C6D0518061A0F090417685F2A4657"
+Leak: 0x7fa7fb600b00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "57"
+Leak: 0x7fa7fb600b10  size=48  zone: DefaultMallocZone_0x1040bc000  length: 34  "0A6C6D0518061A0F090417685F2A465757"
+Leak: 0x7fa7fb600b40  size=48  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600b70  size=48  zone: DefaultMallocZone_0x1040bc000  length: 34  "0A6C6D0518061A0F090417685F2A465757"
+Leak: 0x7fa7fb600ba0  size=16  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600bb0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "J"
+Leak: 0x7fa7fb600bc0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0a"
+Leak: 0x7fa7fb600bd0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "J"
+Leak: 0x7fa7fb600be0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "O"
+Leak: 0x7fa7fb600bf0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6c"
+Leak: 0x7fa7fb600c00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "JO"
+Leak: 0x7fa7fb600c10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "I"
+Leak: 0x7fa7fb600c20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "6d"
+Leak: 0x7fa7fb600c30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 3  "JOI"
+Leak: 0x7fa7fb600c40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600c50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "05"
+Leak: 0x7fa7fb600c60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 4  "JOIN"
+Leak: 0x7fa7fb600c70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "_"
+Leak: 0x7fa7fb600c80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "18"
+Leak: 0x7fa7fb600c90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 5  "JOIN_"
+Leak: 0x7fa7fb600ca0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "C"
+Leak: 0x7fa7fb600cb0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "06"
+Leak: 0x7fa7fb600cc0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 6  "JOIN_C"
+Leak: 0x7fa7fb600cd0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "H"
+Leak: 0x7fa7fb600ce0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "1a"
+Leak: 0x7fa7fb600cf0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 7  "JOIN_CH"
+Leak: 0x7fa7fb600d00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "A"
+Leak: 0x7fa7fb600d10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "0f"
+Leak: 0x7fa7fb600d20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 8  "JOIN_CHA"
+Leak: 0x7fa7fb600d30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600d40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "09"
+Leak: 0x7fa7fb600d50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 9  "JOIN_CHAN"
+Leak: 0x7fa7fb600d60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "N"
+Leak: 0x7fa7fb600d70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "04"
+Leak: 0x7fa7fb600d80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 10  "JOIN_CHANN"
+Leak: 0x7fa7fb600d90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "E"
+Leak: 0x7fa7fb600da0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "17"
+Leak: 0x7fa7fb600db0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 11  "JOIN_CHANNE"
+Leak: 0x7fa7fb600dc0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "L"
+Leak: 0x7fa7fb600dd0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "68"
+Leak: 0x7fa7fb600de0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 12  "JOIN_CHANNEL"
+Leak: 0x7fa7fb600df0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "|"
+Leak: 0x7fa7fb600e00  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "5f"
+Leak: 0x7fa7fb600e10  size=16  zone: DefaultMallocZone_0x1040bc000  length: 13  "JOIN_CHANNEL|"
+Leak: 0x7fa7fb600e20  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "t"
+Leak: 0x7fa7fb600e30  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "2a"
+Leak: 0x7fa7fb600e40  size=16  zone: DefaultMallocZone_0x1040bc000  length: 14  "JOIN_CHANNEL|t"
+Leak: 0x7fa7fb600e50  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "e"
+Leak: 0x7fa7fb600e60  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "46"
+Leak: 0x7fa7fb600e70  size=16  zone: DefaultMallocZone_0x1040bc000  length: 15  "JOIN_CHANNEL|te"
+Leak: 0x7fa7fb600e80  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "s"
+Leak: 0x7fa7fb600e90  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "57"
+Leak: 0x7fa7fb600ea0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 16  "JOIN_CHANNEL|tes"
+Leak: 0x7fa7fb600ec0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 1  "t"
+Leak: 0x7fa7fb600ed0  size=16  zone: DefaultMallocZone_0x1040bc000  length: 2  "57"
+Leak: 0x7fa7fb600ee0  size=32  zone: DefaultMallocZone_0x1040bc000  length: 17  "JOIN_CHANNEL|test"
+Leak: 0x7fa7fb600f00  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fb600f20  size=304  zone: DefaultMallocZone_0x1040bc000
+	0xfb601050 0x00007fa7 0xfb601070 0x00007fa7 	P.`.....p.`.....
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	...
+Leak: 0x7fa7fb601050  size=32  zone: DefaultMallocZone_0x1040bc000  length: 12  "JOIN_CHANNEL"
+Leak: 0x7fa7fb601090  size=32  zone: DefaultMallocZone_0x1040bc000
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+	0x00000000 0x00000000 0x00000000 0x00000000 	................
+Leak: 0x7fa7fc001000  size=8704  zone: DefaultMallocZone_0x1040bc000  length: 10  "test|couci"
+Leak: 0x7fa7fc003200  size=8704  zone: DefaultMallocZone_0x1040bc000  length: 26  "CHANNEL_MESSAGE|test|couci"
+Leak: 0x7fa7fc800000  size=8704  zone: DefaultMallocZone_0x1040bc000  length: 17  "JOIN_CHANNEL|test"

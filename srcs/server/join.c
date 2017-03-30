@@ -27,7 +27,7 @@ char		*serialize_join(char *data)
 void		join_server(char *channel, t_client *client)
 {
 	if (channel != NULL && client != NULL)
-		join_channel(ft_strtolower(channel), client);
+		join_channel(ft_strtolower(channel), client, NULL);
 	else
 		client->send(client, \
 			client->serialize(INFO_MESSAGE, \

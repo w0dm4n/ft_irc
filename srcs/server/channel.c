@@ -69,11 +69,8 @@ t_channel		*get_channel_by_name(char *name)
 	return (NULL);
 }
 
-void			join_channel(char *name, t_client *client)
+void			join_channel(char *name, t_client *client, t_channel *channel)
 {
-	t_channel	*channel;
-
-	channel = NULL;
 	if (name != NULL && ft_strlen(name) > 0)
 	{
 		if ((channel = get_channel_by_name(name)) != NULL)
