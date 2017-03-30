@@ -25,7 +25,7 @@ void				disconnect_client(t_client *client)
 void				print_received(t_client *client, char *buffer)
 {
 	printf("%sReceived message from client (%s:%d): %s%s\n", KMAG, \
-		get_client_addr(clients->in), get_client_port(clients->in), \
+		get_client_addr(client->in), get_client_port(client->in), \
 		buffer, KNRM);
 }
 

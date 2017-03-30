@@ -25,7 +25,7 @@ int			private_message(t_client *client, char **data, int i)
 {
 	char	*to_send;
 
-	if (data[1] != NULL && data[2] != NULL)
+	if (data[1] != NULL && data[2] != NULL && client != NULL)
 	{
 		if (!(to_send = ft_strnew(CLIENT_READ)))
 			return (TRUE);

@@ -76,6 +76,7 @@ typedef struct			s_client
 	int					remote_port;
 	char				*nickname;
 	t_channel			*channel;
+	char				*packet_buffer;
 }						t_client;
 
 typedef struct			s_server
@@ -114,6 +115,7 @@ void					send_data(t_client *client, char *msg);
 t_client				*alloc_new_client(void);
 void					remove_client(t_client **ptr, t_client *map);
 void					add_client(t_client *client);
+void					check_handle(t_client *client, char *buffer);
 
 /*
 ** CLIENT
