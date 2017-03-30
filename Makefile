@@ -6,7 +6,7 @@
 #    By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/20 17:57:50 by frmarinh          #+#    #+#              #
-#    Updated: 2017/03/24 04:06:43 by frmarinh         ###   ########.fr        #
+#    Updated: 2017/03/30 16:01:42 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ LENGTHNAME	=	`printf "%s" $(NAMEBASE) | wc -c`
 MAX_COLS	=	$$(echo "$$(tput cols)-24-$(LENGTHNAME)"|bc)
 
 CC			=	gcc 
-#FLAGS		=	-Wall -Wextra -Werror -O3
-FLAGS       =  -ggdb
+FLAGS		=	-Wall -Wextra -Werror -O3
 FLAGS_O		=	
 
 SRCDIR_SERVEUR		=	srcs/server/
@@ -47,7 +46,8 @@ SRCBASE_SERVEUR	=	\
 					talk_channel.c \
 					who.c      \
 					leave.c    \
-					pm.c
+					pm.c       \
+					client_extends.c
 
 SRCBASE_CLIENT		=	\
 					client.c \
@@ -68,7 +68,8 @@ SRCBASE_CLIENT		=	\
 					who.c \
 					leave.c \
 					private_message.c \
-					send.c
+					send.c  \
+					client_extends.c
 
 INCS		=	$(addprefix $(INCDIR), $(INCBASE))
 

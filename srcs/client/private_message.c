@@ -63,7 +63,7 @@ void		received_pm(char **data, t_client *client)
 			if (ft_strcmp(ft_strtolower(split[0]), \
 				ft_strtolower(client->nickname)))
 				printf("\n");
-			printf("[%s%s%s]: %s\n", KYEL, split[0], KNRM, split[1]);
+			printf("[PM] [%s%s%s]: %s\n", KYEL, split[0], KNRM, split[1]);
 			print_prompt(client);
 		}
 	}

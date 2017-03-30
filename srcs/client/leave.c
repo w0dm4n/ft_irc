@@ -12,7 +12,7 @@
 
 #include "all.h"
 
-char		*serialize_leave(char *data)
+char		*serialize_leave(void)
 {
 	char	*to_send;
 

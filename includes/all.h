@@ -110,6 +110,10 @@ char					*serialize_leaved(void);
 void					pm_server(t_client *client, char *data);
 t_client				*get_client_by_nickname(char *nickname);
 char					*serialize_mp(char *data);
+void					send_data(t_client *client, char *msg);
+t_client				*alloc_new_client(void);
+void					remove_client(t_client **ptr, t_client *map);
+void					add_client(t_client *client);
 
 /*
 ** CLIENT
@@ -140,6 +144,10 @@ void					leaved(t_client *client);
 int						private_message(t_client *client, char **data, int i);
 void					received_pm(char **data, t_client *client);
 void					send_packet(t_client *client, char **split);
+int						read_server(t_client *client);
+void					check_welcome(char *message, t_client *client);
+t_client				*get_client(char *host, int port);
+void					send_data(t_client *client, char *msg);
 
 /*
 ** BOTH SIDE
@@ -154,7 +162,7 @@ char					hexastring_to_int(char *s);
 char					*serialize_join(char *data);
 char					*serialize_channel_msg(char *data);
 char					*serialize_who(void);
-char					*serialize_leave(char *data);
+char					*serialize_leave(void);
 char					*get_client_addr(struct sockaddr_in client);
 int						get_client_port(struct sockaddr_in client);
 /*

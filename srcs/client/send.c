@@ -14,6 +14,6 @@
 
 void		send_packet(t_client *client, char **split)
 {
-	if (client != NULL && client->connected == TRUE)
+	if (client != NULL && client->connected == TRUE && split[1] != NULL)
 		client->send(client, replace_newline(split[1]));
 }

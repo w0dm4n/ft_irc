@@ -24,6 +24,7 @@ int			help(void)
 	printf("- /who: Informations about connected users\n");
 	printf("- /leave: Leave the current channel\n");
 	printf("- /msg: Send a message to one user\n");
+	printf("- /send: Debug command to send packet\n");
 	printf("- /exit: Close the program\n");
 	return (TRUE);
 }

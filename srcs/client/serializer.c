@@ -23,6 +23,6 @@ char	*serializer(char *msg_type, char *data)
 	if (!ft_strncmp(msg_type, WHO_MESSAGE, ft_strlen(WHO_MESSAGE)))
 		return (serialize_who());
 	if (!ft_strncmp(msg_type, LEAVE_MESSAGE, ft_strlen(LEAVE_MESSAGE)))
-		return (serialize_leave(data));
+		return (serialize_leave());
 	return ("Unknown");
 }
